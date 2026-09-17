@@ -18,12 +18,12 @@ export default async function CaseStudyPage({
 
   return (
     <div data-page-transition className="page-transition-enter">
-    <main className="w-full max-w-[800px] mx-auto px-6 pb-32">
+    <main className="w-full max-w-[800px] mx-auto px-5 md:px-6 pb-28 md:pb-32">
       {/* Sticky top bar */}
       <div className="sticky top-0 z-40 mb-4">
-        <div className="bg-bg pt-14 pb-4">
-          <div className="flex gap-[60px] items-center">
-            <div className="w-[140px] shrink-0">
+        <div className="bg-bg pt-10 md:pt-14 pb-4">
+          <div className="flex gap-4 md:gap-[60px] items-center">
+            <div className="md:w-[140px] shrink-0">
               <Link
                 href="/"
                 className="inline-flex items-center gap-1 bg-bg-white rounded-lg px-2.5 py-2 hover:bg-stroke-soft/50 transition-colors"
@@ -33,7 +33,7 @@ export default async function CaseStudyPage({
               </Link>
             </div>
 
-            <nav className="flex items-center gap-1 text-base">
+            <nav className="flex items-center gap-1 text-sm md:text-base">
               <Link href="/" className="text-text-soft hover:text-text-sub transition-colors">
                 Home
               </Link>
@@ -42,21 +42,24 @@ export default async function CaseStudyPage({
             </nav>
           </div>
         </div>
-        <div className="h-6 flex gap-[60px]">
+        <div className="h-6 hidden md:flex gap-[60px]">
           <div className="w-[140px] shrink-0" />
           <div className="flex-1 bg-gradient-to-b from-bg to-transparent" />
         </div>
+        <div className="h-4 md:hidden bg-gradient-to-b from-bg to-transparent" />
       </div>
 
       {/* Two-column layout */}
       <div className="flex gap-[60px] items-start">
-        {/* Sidebar TOC */}
-        <CaseStudySidebar items={project.tocItems} />
+        {/* Sidebar TOC — hidden on mobile */}
+        <div className="hidden md:block">
+          <CaseStudySidebar items={project.tocItems} />
+        </div>
 
         {/* Content */}
         <div className="flex-1 min-w-0 flex flex-col gap-5">
           {/* Hero image */}
-          <div className="bg-bg-white h-[400px] w-full rounded-lg" />
+          <div className="bg-bg-white h-[220px] md:h-[400px] w-full rounded-lg" />
 
           {/* Project title */}
           <div className="flex flex-col gap-1">
@@ -114,7 +117,7 @@ export default async function CaseStudyPage({
                       </p>
                     ))}
                     {sub.image && (
-                      <div className="bg-bg-white h-[350px] w-full rounded-lg" />
+                      <div className="bg-bg-white h-[200px] md:h-[350px] w-full rounded-lg" />
                     )}
                   </div>
                 ))}

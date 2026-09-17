@@ -45,7 +45,7 @@ export function ProjectCard({
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="relative bg-bg-white h-[300px] w-full rounded-lg overflow-hidden"
+        className="relative bg-bg-white h-[220px] md:h-[300px] w-full rounded-lg overflow-hidden"
       >
         {thumbnail && (
           <Image
@@ -57,7 +57,7 @@ export function ProjectCard({
           />
         )}
         <span
-          className="pointer-events-none absolute whitespace-nowrap text-sm font-medium text-text-strong bg-bg-white border border-stroke-soft rounded-full px-5 py-2.5 shadow-sm transition-opacity duration-200 -translate-x-1/2 -translate-y-1/2"
+          className="pointer-events-none absolute whitespace-nowrap text-sm font-medium text-text-strong bg-bg-white border border-stroke-soft rounded-full px-5 py-2.5 shadow-sm transition-opacity duration-200 -translate-x-1/2 -translate-y-1/2 hidden md:block"
           style={{
             left: pos.x,
             top: pos.y,
