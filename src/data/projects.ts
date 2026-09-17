@@ -34,10 +34,11 @@ export const projects: Project[] = [
       { id: "research", label: "Research / Discovery" },
       { id: "features", label: "Features" },
       { id: "accounting", label: "Accounting", indent: true },
-      { id: "users", label: "Users", indent: true },
-      { id: "transactions", label: "Transactions", indent: true },
       { id: "clients", label: "Clients", indent: true },
+      { id: "view-client", label: "View Client", indent: true },
       { id: "create-individual-client", label: "Create Individual Client", indent: true },
+      { id: "create-corporate-client", label: "Create Corporate Client", indent: true },
+      { id: "transactions", label: "Transactions", indent: true },
       { id: "administration", label: "Administration", indent: true },
     ],
     sections: [
@@ -93,28 +94,19 @@ export const projects: Project[] = [
             video: "/videos/chain-of-account.mp4",
           },
           {
-            id: "users",
-            title: "Users",
-            paragraphs: [
-              "Managing users across branches and roles was a core requirement for any banking platform. We designed a system that gave administrators full visibility and control over every user in the organization.",
-            ],
-            video: "/videos/users.mp4",
-          },
-          {
-            id: "transactions",
-            title: "Transactions",
-            paragraphs: [
-              "Chain of Account: When development of ChainCore began, the team and I spoke with a number of people to gather perspective, starting with the accountants, who were the primary users of the platform.",
-            ],
-            image: true,
-          },
-          {
             id: "clients",
             title: "Clients",
             paragraphs: [
-              "Chain of Account: When development of ChainCore began, the team and I spoke with a number of people to gather perspective, starting with the accountants, who were the primary users of the platform.",
+              "Managing clients was at the heart of the platform. We designed a system that gave administrators full visibility and control over every client in the organization, from onboarding to ongoing management.",
             ],
-            image: true,
+          },
+          {
+            id: "view-client",
+            title: "View Client",
+            paragraphs: [
+              "The client overview gives users a complete snapshot of each client, with all key details accessible at a glance.",
+            ],
+            video: "/videos/users.mp4",
           },
           {
             id: "create-individual-client",
@@ -123,6 +115,22 @@ export const projects: Project[] = [
               "Creating a new client needed to be straightforward and fast. We built a guided flow that walked users through capturing all essential client details in a clear, step-by-step process.",
             ],
             video: "/videos/create-individual-client.mp4",
+          },
+          {
+            id: "create-corporate-client",
+            title: "Create Corporate Client",
+            paragraphs: [
+              "Corporate clients required a different onboarding flow, capturing business details, registration information, and authorized signatories in a structured process.",
+            ],
+            video: "/videos/create-corporate-client.mp4",
+          },
+          {
+            id: "transactions",
+            title: "Transactions",
+            paragraphs: [
+              "Chain of Account: When development of ChainCore began, the team and I spoke with a number of people to gather perspective, starting with the accountants, who were the primary users of the platform.",
+            ],
+            image: true,
           },
         ],
       },
