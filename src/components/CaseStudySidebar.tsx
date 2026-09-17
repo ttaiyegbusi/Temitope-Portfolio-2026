@@ -42,12 +42,12 @@ export function CaseStudySidebar({ items }: { items: TocItem[] }) {
   }
 
   return (
-    <nav className="sticky top-[120px] shrink-0 flex flex-col gap-1 w-[140px]">
+    <nav className="sticky top-[120px] shrink-0 flex flex-col gap-1 w-[180px]">
       {items.map((item) => (
         <button
           key={item.id}
           onClick={() => handleClick(item.id)}
-          className={`text-left text-base transition-colors ${
+          className={`text-left text-base transition-colors whitespace-nowrap ${
             item.indent ? "pl-2" : ""
           } ${
             activeId === item.id
