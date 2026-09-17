@@ -53,7 +53,7 @@ export default async function CaseStudyPage({
       {/* Two-column layout */}
       <div className="flex gap-[60px] items-start">
         {/* Sidebar TOC — hidden on mobile */}
-        <div className="hidden md:block">
+        <div className="hidden md:block self-stretch">
           <CaseStudySidebar items={project.tocItems} />
         </div>
 
