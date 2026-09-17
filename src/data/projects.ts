@@ -38,6 +38,7 @@ export const projects: Project[] = [
       { id: "view-client", label: "View Client", indent: true },
       { id: "create-individual-client", label: "Create Individual Client", indent: true },
       { id: "create-corporate-client", label: "Create Corporate Client", indent: true },
+      { id: "create-center", label: "Create Center", indent: true },
       { id: "transactions", label: "Transactions", indent: true },
       { id: "administration", label: "Administration", indent: true },
     ],
@@ -106,7 +107,7 @@ export const projects: Project[] = [
             paragraphs: [
               "The client overview gives users a complete snapshot of each client, with all key details accessible at a glance.",
             ],
-            video: "/videos/users.mp4",
+            video: "/videos/view-client.mp4",
           },
           {
             id: "create-individual-client",
@@ -123,6 +124,14 @@ export const projects: Project[] = [
               "Corporate clients required a different onboarding flow, capturing business details, registration information, and authorized signatories in a structured process.",
             ],
             video: "/videos/create-corporate-client.mp4",
+          },
+          {
+            id: "create-center",
+            title: "Create Center",
+            paragraphs: [
+              "Centers allowed organizations to group clients and operations by location or branch. The creation flow made it easy to set up a new center with all its relevant details.",
+            ],
+            video: "/videos/create-center.mp4",
           },
           {
             id: "transactions",
