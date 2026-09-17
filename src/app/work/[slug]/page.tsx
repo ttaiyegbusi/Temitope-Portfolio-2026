@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { projects, getProject } from "@/data/projects";
 import { CaseStudySidebar } from "@/components/CaseStudySidebar";
+import { VideoPlayer } from "@/components/VideoPlayer";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -116,7 +117,10 @@ export default async function CaseStudyPage({
                         {p}
                       </p>
                     ))}
-                    {sub.image && (
+                    {sub.video && (
+                      <VideoPlayer src={sub.video} />
+                    )}
+                    {sub.image && !sub.video && (
                       <div className="bg-bg-white h-[200px] md:h-[350px] w-full rounded-lg" />
                     )}
                   </div>

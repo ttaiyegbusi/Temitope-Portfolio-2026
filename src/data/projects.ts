@@ -8,6 +8,7 @@ export interface ProjectSection {
     title: string;
     paragraphs: string[];
     image?: boolean;
+    video?: string;
   }[];
   image?: boolean;
 }
@@ -33,8 +34,10 @@ export const projects: Project[] = [
       { id: "research", label: "Research / Discovery" },
       { id: "features", label: "Features" },
       { id: "accounting", label: "Accounting", indent: true },
+      { id: "users", label: "Users", indent: true },
       { id: "transactions", label: "Transactions", indent: true },
       { id: "clients", label: "Clients", indent: true },
+      { id: "create-individual-client", label: "Create Individual Client", indent: true },
       { id: "administration", label: "Administration", indent: true },
     ],
     sections: [
@@ -87,7 +90,15 @@ export const projects: Project[] = [
             paragraphs: [
               "When development of ChainCore began, the team and I spoke with a number of people to gather perspective, starting with the accountants, who were the primary users of the platform.",
             ],
-            image: true,
+            video: "/videos/chain-of-account.mp4",
+          },
+          {
+            id: "users",
+            title: "Users",
+            paragraphs: [
+              "Managing users across branches and roles was a core requirement for any banking platform. We designed a system that gave administrators full visibility and control over every user in the organization.",
+            ],
+            video: "/videos/users.mp4",
           },
           {
             id: "transactions",
@@ -104,6 +115,14 @@ export const projects: Project[] = [
               "Chain of Account: When development of ChainCore began, the team and I spoke with a number of people to gather perspective, starting with the accountants, who were the primary users of the platform.",
             ],
             image: true,
+          },
+          {
+            id: "create-individual-client",
+            title: "Create Individual Client",
+            paragraphs: [
+              "Creating a new client needed to be straightforward and fast. We built a guided flow that walked users through capturing all essential client details in a clear, step-by-step process.",
+            ],
+            video: "/videos/create-individual-client.mp4",
           },
         ],
       },
