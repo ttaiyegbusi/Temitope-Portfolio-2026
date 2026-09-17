@@ -24,7 +24,7 @@ export default async function CaseStudyPage({
       <div className="sticky top-0 z-40 mb-4">
         <div className="bg-bg pt-10 md:pt-14 pb-4">
           <div className="flex gap-4 md:gap-[60px] items-center">
-            <div className="md:w-[180px] shrink-0">
+            <div className="md:w-[200px] shrink-0">
               <Link
                 href="/"
                 className="inline-flex items-center gap-1 bg-bg-white rounded-lg px-2.5 py-2 hover:bg-stroke-soft/50 transition-colors"
@@ -44,7 +44,7 @@ export default async function CaseStudyPage({
           </div>
         </div>
         <div className="h-6 hidden md:flex gap-[60px]">
-          <div className="w-[180px] shrink-0" />
+          <div className="w-[200px] shrink-0" />
           <div className="flex-1 bg-gradient-to-b from-bg to-transparent" />
         </div>
         <div className="h-4 md:hidden bg-gradient-to-b from-bg to-transparent" />
