@@ -5,11 +5,13 @@ const projects = [
     title: "ChainCore",
     description: "Core Banking Application for the African Companies and Market.",
     slug: "chaincore",
+    video: "/videos/chaincore.mp4",
   },
   {
     title: "Knit",
     description: "A Core Banking Application for the African Companies",
     slug: "knit",
+    video: "/videos/knit.mp4",
   },
   {
     title: "Yaraa",
