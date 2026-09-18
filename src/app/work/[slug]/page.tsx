@@ -3,6 +3,7 @@ import Link from "next/link";
 import { projects, getProject } from "@/data/projects";
 import { CaseStudySidebar } from "@/components/CaseStudySidebar";
 import { VideoPlayer } from "@/components/VideoPlayer";
+import { MobileScrollbar } from "@/components/MobileScrollbar";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -19,6 +20,7 @@ export default async function CaseStudyPage({
 
   return (
     <div data-page-transition className="page-transition-enter">
+    <MobileScrollbar items={project.tocItems} />
     <main className="w-full max-w-[800px] mx-auto px-5 md:px-6 pb-28 md:pb-32">
       {/* Sticky top bar */}
       <div className="sticky top-0 z-40 mb-4">

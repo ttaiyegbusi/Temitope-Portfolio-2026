@@ -18,7 +18,7 @@ export interface Project {
   title: string;
   description: string;
   thumbnail?: string;
-  tocItems: { id: string; label: string; indent?: boolean }[];
+  tocItems: { id: string; label: string; level?: 1 | 2 }[];
   sections: ProjectSection[];
 }
 
@@ -33,14 +33,21 @@ export const projects: Project[] = [
       { id: "solution", label: "Solution" },
       { id: "research", label: "Research / Discovery" },
       { id: "features", label: "Features" },
-      { id: "accounting", label: "Accounting", indent: true },
-      { id: "clients", label: "Clients", indent: true },
-      { id: "view-client", label: "View Client", indent: true },
-      { id: "create-individual-client", label: "Create Individual Client", indent: true },
-      { id: "create-corporate-client", label: "Create Corporate Client", indent: true },
-      { id: "create-center", label: "Create Center", indent: true },
-      { id: "transactions", label: "Transactions", indent: true },
-      { id: "administration", label: "Administration", indent: true },
+      { id: "accounting", label: "Accounting", level: 1 },
+      { id: "charts-of-accounts", label: "Charts of Accounts", level: 2 },
+      { id: "income-expense", label: "Income & Expense", level: 2 },
+      { id: "balance-sheet", label: "Balance Sheet", level: 2 },
+      { id: "trail-balance", label: "Trail Balance", level: 2 },
+      { id: "journal-entries", label: "Journal Entries", level: 2 },
+      { id: "general-ledger", label: "General Ledger", level: 2 },
+      { id: "provisional-report", label: "Provisional Report", level: 2 },
+      { id: "clients", label: "Clients", level: 1 },
+      { id: "view-client", label: "View Client", level: 2 },
+      { id: "create-individual-client", label: "Create Individual Client", level: 2 },
+      { id: "create-corporate-client", label: "Create Corporate Client", level: 2 },
+      { id: "create-center", label: "Create Center", level: 2 },
+      { id: "transactions", label: "Transactions", level: 1 },
+      { id: "administration", label: "Administration", level: 1 },
     ],
     sections: [
       {
@@ -88,11 +95,66 @@ export const projects: Project[] = [
         subsections: [
           {
             id: "accounting",
-            title: "Chain of Account",
+            title: "Accounting",
             paragraphs: [
-              "When development of ChainCore began, the team and I spoke with a number of people to gather perspective, starting with the accountants, who were the primary users of the platform.",
+              "The accounting module was the backbone of ChainCore. It gave financial institutions a complete suite of tools to manage their books, from chart of accounts setup through to reporting and reconciliation.",
+            ],
+          },
+          {
+            id: "charts-of-accounts",
+            title: "Charts of Accounts",
+            paragraphs: [
+              "The chart of accounts provided a structured framework for categorizing every financial transaction. We designed it to be flexible enough for different institution types while maintaining the consistency accountants needed.",
             ],
             video: "/videos/chain-of-account.mp4",
+          },
+          {
+            id: "income-expense",
+            title: "Income & Expense",
+            paragraphs: [
+              "Tracking income and expenses needed to be clear and immediate. We built views that gave accountants real-time visibility into the financial health of the organization.",
+            ],
+            image: true,
+          },
+          {
+            id: "balance-sheet",
+            title: "Balance Sheet",
+            paragraphs: [
+              "The balance sheet provided a snapshot of the institution's financial position at any given point, with assets, liabilities, and equity clearly laid out.",
+            ],
+            image: true,
+          },
+          {
+            id: "trail-balance",
+            title: "Trail Balance",
+            paragraphs: [
+              "The trial balance report ensured all debits and credits were in balance, serving as a critical checkpoint before generating financial statements.",
+            ],
+            image: true,
+          },
+          {
+            id: "journal-entries",
+            title: "Journal Entries",
+            paragraphs: [
+              "Journal entries allowed accountants to record transactions directly into the ledger with full control over accounts, amounts, and descriptions.",
+            ],
+            image: true,
+          },
+          {
+            id: "general-ledger",
+            title: "General Ledger",
+            paragraphs: [
+              "The general ledger served as the central record of all financial transactions, giving accountants a complete and auditable trail of every movement.",
+            ],
+            image: true,
+          },
+          {
+            id: "provisional-report",
+            title: "Provisional Report",
+            paragraphs: [
+              "Provisional reports gave institutions the ability to generate draft financial statements for review before final submission.",
+            ],
+            image: true,
           },
           {
             id: "clients",
