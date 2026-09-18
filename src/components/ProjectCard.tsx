@@ -80,7 +80,10 @@ export function ProjectCard({
           View project
         </span>
       </div>
-      <p className="text-lg font-normal text-black">{description}</p>
+      <div className="flex flex-col gap-1">
+        <h3 className="text-base font-normal text-text-soft">{title}</h3>
+        <p className="text-lg font-normal text-black">{description}</p>
+      </div>
     </Link>
   );
 }

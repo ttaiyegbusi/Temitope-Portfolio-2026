@@ -114,7 +114,7 @@ export const projects: Project[] = [
             paragraphs: [
               "Tracking income and expenses needed to be clear and immediate. We built views that gave accountants real-time visibility into the financial health of the organization.",
             ],
-            image: true,
+            video: "/videos/income-expense.mp4",
           },
           {
             id: "balance-sheet",
@@ -122,7 +122,7 @@ export const projects: Project[] = [
             paragraphs: [
               "The balance sheet provided a snapshot of the institution's financial position at any given point, with assets, liabilities, and equity clearly laid out.",
             ],
-            image: true,
+            video: "/videos/balance-sheet.mp4",
           },
           {
             id: "trail-balance",
@@ -130,7 +130,7 @@ export const projects: Project[] = [
             paragraphs: [
               "The trial balance report ensured all debits and credits were in balance, serving as a critical checkpoint before generating financial statements.",
             ],
-            image: true,
+            video: "/videos/trail-balance.mp4",
           },
           {
             id: "journal-entries",
