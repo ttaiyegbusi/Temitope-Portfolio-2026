@@ -47,7 +47,7 @@ export function ProjectCard({
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="relative bg-bg-white aspect-square md:aspect-auto md:h-[300px] w-full rounded-lg overflow-hidden"
+        className="relative bg-bg-white h-[270px] md:h-[300px] w-full rounded-lg overflow-hidden"
       >
         {video && (
           <video
@@ -81,8 +81,8 @@ export function ProjectCard({
         </span>
       </div>
       <div className="flex flex-col gap-1">
-        <h3 className="text-base font-normal text-text-soft">{title}</h3>
-        <p className="text-lg font-normal text-black">{description}</p>
+        <h3 className="text-sm md:text-base font-normal text-text-soft">{title}</h3>
+        <p className="text-base md:text-lg font-normal text-black">{description}</p>
       </div>
     </Link>
   );
