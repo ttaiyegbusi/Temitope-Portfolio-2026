@@ -22,6 +22,7 @@ const projects = [
     title: "Reeple",
     description: "Remittances & Payments for Nigerians and African Freelancers",
     slug: "reeple",
+    video: "/videos/reeple.mp4",
   },
   {
     title: "DevFest 2025 Ticketing Platform",
