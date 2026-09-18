@@ -14,11 +14,6 @@ const projects = [
     video: "/videos/knit.mp4",
   },
   {
-    title: "Yaraa",
-    description: "An Enterprise Resource Planning Platform",
-    slug: "yaraa",
-  },
-  {
     title: "Reeple",
     description: "Remittances & Payments for Nigerians and African Freelancers",
     slug: "reeple",
@@ -29,11 +24,6 @@ const projects = [
     description: "Helping receive payments",
     slug: "devfest-2025",
     video: "/videos/devfest-lagos.mp4",
-  },
-  {
-    title: "ChainCore",
-    description: "Product Designer X Design Engineer",
-    slug: "chaincore-3",
   },
 ];
 

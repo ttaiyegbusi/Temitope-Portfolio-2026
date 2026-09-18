@@ -2,17 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "./ThemeProvider";
 
 const navItems = [
   { href: "/", label: "Home", icon: HomeIcon },
   { href: "/work", label: "Work", icon: StackIcon },
   { href: "/about", label: "About", icon: UserIcon },
   { href: "/contact", label: "Contact", icon: ContactIcon },
-  { href: "#", label: "Theme", icon: SunIcon, isThemeToggle: true },
 ];
 
 export function Navigation() {
   const pathname = usePathname();
+  const { theme, toggle } = useTheme();
 
   return (
     <nav className="fixed bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-50">
@@ -20,7 +21,7 @@ export function Navigation() {
         {navItems.map((item) => {
           const isActive = item.href === "/"
             ? pathname === "/"
-            : pathname.startsWith(item.href) && item.href !== "#";
+            : pathname.startsWith(item.href);
           const Icon = item.icon;
 
           return (
@@ -28,14 +29,55 @@ export function Navigation() {
               key={item.label}
               href={item.href}
               aria-label={item.label}
-              className={`transition-opacity ${
-                isActive ? "opacity-100" : "opacity-40 hover:opacity-70"
-              }`}
+              className="relative flex items-center justify-center w-6 h-6"
+              style={{
+                opacity: isActive ? 1 : 0.4,
+                transform: isActive ? "scale(1)" : "scale(0.92)",
+                transition: "opacity 0.25s ease, transform 0.25s ease",
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive) e.currentTarget.style.opacity = "0.7";
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive) e.currentTarget.style.opacity = "0.4";
+              }}
             >
               <Icon />
             </Link>
           );
         })}
+        <button
+          onClick={toggle}
+          aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+          className="relative flex items-center justify-center w-6 h-6 cursor-pointer"
+          style={{
+            opacity: 0.4,
+            transition: "opacity 0.25s ease, transform 0.25s ease",
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.7"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.4"; }}
+        >
+          <span
+            className="absolute inset-0 flex items-center justify-center"
+            style={{
+              opacity: theme === "light" ? 1 : 0,
+              transform: theme === "light" ? "rotate(0deg) scale(1)" : "rotate(-90deg) scale(0)",
+              transition: "opacity 0.35s ease, transform 0.35s ease",
+            }}
+          >
+            <SunIcon />
+          </span>
+          <span
+            className="absolute inset-0 flex items-center justify-center"
+            style={{
+              opacity: theme === "dark" ? 1 : 0,
+              transform: theme === "dark" ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0)",
+              transition: "opacity 0.35s ease, transform 0.35s ease",
+            }}
+          >
+            <MoonIcon />
+          </span>
+        </button>
       </div>
     </nav>
   );
@@ -90,6 +132,14 @@ function SunIcon() {
       <path d="M20 12h2" />
       <path d="m6.34 17.66-1.41 1.41" />
       <path d="m19.07 4.93-1.41 1.41" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
     </svg>
   );
 }

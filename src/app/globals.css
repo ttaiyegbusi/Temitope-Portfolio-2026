@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   --color-bg: #f7f7f7;
   --color-bg-white: #ffffff;
   --color-text-strong: #171717;
@@ -11,10 +11,47 @@
   --font-mono: var(--font-geist-mono);
 }
 
+[data-theme="dark"] {
+  --color-bg: #0a0a0a;
+  --color-bg-white: #1a1a1a;
+  --color-text-strong: #f5f5f5;
+  --color-text-sub: #a3a3a3;
+  --color-text-soft: #737373;
+  --color-stroke-soft: #2a2a2a;
+  color-scheme: dark;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-text-strong);
   font-family: var(--font-sans), system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html[data-transitioning] *,
+html[data-transitioning] *::before,
+html[data-transitioning] *::after {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+[data-theme="dark"] .text-black {
+  color: #f5f5f5;
+}
+
+[data-theme="dark"] .hover\:text-black:hover {
+  color: #f5f5f5;
+}
+
+[data-theme="dark"] .hover\:text-text-sub:hover {
+  color: var(--color-text-sub);
+}
+
+[data-theme="dark"] .hover\:bg-stroke-soft\/50:hover {
+  background-color: rgba(42, 42, 42, 0.5);
+}
+
+[data-theme="dark"] .from-bg {
+  --tw-gradient-from: #0a0a0a;
 }
 
 @keyframes page-scale-in {
@@ -61,4 +98,3 @@ body {
     display: none;
   }
 }
-
