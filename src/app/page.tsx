@@ -39,16 +39,16 @@ export default function HomePage() {
       {/* Header */}
       <header className="flex flex-col gap-1">
         <div className="flex items-center justify-between">
-          <h1 className="text-xl font-normal text-black font-sans">
+          <h1 className="text-lg md:text-xl font-normal text-black font-sans">
             Temitope Aiyegbusi
           </h1>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 md:gap-3">
             <a
               href="https://dribbble.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Dribbble"
-              className="opacity-80 hover:opacity-100 transition-opacity"
+              className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-4 [&_svg]:h-4 md:[&_svg]:w-5 md:[&_svg]:h-5"
             >
               <DribbbleIcon />
             </a>
@@ -57,7 +57,7 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="opacity-80 hover:opacity-100 transition-opacity"
+              className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-4 [&_svg]:h-4 md:[&_svg]:w-5 md:[&_svg]:h-5"
             >
               <LinkedInIcon />
             </a>
@@ -66,13 +66,13 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="opacity-80 hover:opacity-100 transition-opacity"
+              className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-4 [&_svg]:h-4 md:[&_svg]:w-5 md:[&_svg]:h-5"
             >
               <GitHubIcon />
             </a>
           </div>
         </div>
-        <p className="text-base font-normal text-text-soft font-mono">
+        <p className="text-sm md:text-base font-normal text-text-soft font-sans">
           Product Designer X Design Engineer
         </p>
       </header>

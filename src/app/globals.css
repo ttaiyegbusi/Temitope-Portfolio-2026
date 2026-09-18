@@ -51,3 +51,13 @@ body {
   animation: lightbox-scale 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+@media (max-width: 767px) {
+  body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
