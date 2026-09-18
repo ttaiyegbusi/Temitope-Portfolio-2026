@@ -17,14 +17,15 @@ const projects = [
     slug: "yaraa",
   },
   {
-    title: "ChainCore",
-    description: "Product Designer X Design Engineer",
-    slug: "chaincore-2",
+    title: "Reeple",
+    description: "Remittances & Payments for Nigerians and African Freelancers",
+    slug: "reeple",
   },
   {
     title: "DevFest 2025 Ticketing Platform",
     description: "Helping receive payments",
     slug: "devfest-2025",
+    video: "/videos/devfest-lagos.mp4",
   },
   {
     title: "ChainCore",

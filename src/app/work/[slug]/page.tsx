@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { projects, getProject } from "@/data/projects";
 import { CaseStudySidebar } from "@/components/CaseStudySidebar";
 import { VideoPlayer } from "@/components/VideoPlayer";
@@ -62,7 +63,19 @@ export default async function CaseStudyPage({
         {/* Content */}
         <div className="flex-1 min-w-0 flex flex-col gap-5">
           {/* Hero image */}
-          <div className="bg-bg-white h-[220px] md:h-[400px] w-full rounded-lg" />
+          {project.thumbnail ? (
+            <div className="w-full rounded-lg overflow-hidden">
+              <Image
+                src={project.thumbnail}
+                alt={project.title}
+                width={1200}
+                height={600}
+                className="w-full h-auto"
+              />
+            </div>
+          ) : (
+            <div className="bg-bg-white h-[220px] md:h-[400px] w-full rounded-lg" />
+          )}
 
           {/* Project title */}
           <div className="flex flex-col gap-1">
@@ -102,6 +115,18 @@ export default async function CaseStudyPage({
                   </ul>
                 )}
 
+                {typeof section.image === "string" && (
+                  <div className="w-full rounded-lg overflow-hidden">
+                    <Image
+                      src={section.image}
+                      alt={section.title}
+                      width={1200}
+                      height={600}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                )}
+
                 {section.subsections?.map((sub) => (
                   <div
                     key={sub.id}
@@ -122,7 +147,18 @@ export default async function CaseStudyPage({
                     {sub.video && (
                       <VideoPlayer src={sub.video} />
                     )}
-                    {sub.image && !sub.video && (
+                    {typeof sub.image === "string" && !sub.video && (
+                      <div className="w-full rounded-lg overflow-hidden">
+                        <Image
+                          src={sub.image}
+                          alt={sub.title}
+                          width={1200}
+                          height={600}
+                          className="w-full h-auto"
+                        />
+                      </div>
+                    )}
+                    {sub.image === true && !sub.video && (
                       <div className="bg-bg-white h-[200px] md:h-[350px] w-full rounded-lg" />
                     )}
                   </div>

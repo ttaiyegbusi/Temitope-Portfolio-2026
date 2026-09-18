@@ -9,6 +9,7 @@ interface ProjectCardProps {
   description: string;
   slug: string;
   thumbnail?: string;
+  video?: string;
 }
 
 export function ProjectCard({
@@ -16,6 +17,7 @@ export function ProjectCard({
   description,
   slug,
   thumbnail,
+  video,
 }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -47,7 +49,18 @@ export function ProjectCard({
         onMouseLeave={handleMouseLeave}
         className="relative bg-bg-white h-[220px] md:h-[300px] w-full rounded-lg overflow-hidden"
       >
-        {thumbnail && (
+        {video && (
+          <video
+            src={video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover"
+          />
+        )}
+        {thumbnail && !video && (
           <Image
             src={thumbnail}
             alt={title}

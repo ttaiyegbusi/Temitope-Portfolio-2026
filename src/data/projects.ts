@@ -7,10 +7,10 @@ export interface ProjectSection {
     id: string;
     title: string;
     paragraphs: string[];
-    image?: boolean;
+    image?: boolean | string;
     video?: string;
   }[];
-  image?: boolean;
+  image?: boolean | string;
 }
 
 export interface Project {
@@ -242,17 +242,78 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "chaincore-2",
-    title: "ChainCore",
-    description: "Product Designer X Design Engineer",
+    slug: "reeple",
+    title: "Reeple",
+    description: "Remittances & Payments for Nigerians and African Freelancers",
+    thumbnail: "/images/reeple/hero.png",
     tocItems: [
-      { id: "context", label: "Context" },
+      { id: "introduction", label: "Introduction" },
+      { id: "freelancers", label: "The Hidden Struggle" },
+      { id: "ux-challenge", label: "The UX Challenge" },
+      { id: "send-money", label: "Send Money", level: 2 },
+      { id: "receive-payments", label: "Receive Payments", level: 2 },
+      { id: "trust-security", label: "Trust & Security", level: 2 },
+      { id: "business-outcome", label: "Business Outcome" },
     ],
     sections: [
       {
-        id: "context",
-        title: "Context",
-        paragraphs: ["Coming soon."],
+        id: "introduction",
+        title: "Introduction - More Than Just a Money Transfer",
+        paragraphs: [
+          "For millions of Nigerians abroad, sending money home is not just a financial necessity—it’s a connection to family, culture, and responsibility. Remittances help pay for essentials like school fees, healthcare, and household expenses.",
+          "In 2022 alone, Nigeria received over $20 billion in remittances, yet the process remains expensive, slow, and often unclear, leaving users frustrated. Many existing platforms lack transparency, charge high fees, and delay transactions, creating uncertainty for both senders and recipients.",
+        ],
+      },
+      {
+        id: "freelancers",
+        title: "The Hidden Struggle of African Freelancers",
+        paragraphs: [
+          "While the global gig economy has opened doors for African freelancers, getting paid remains a major challenge. Many payment platforms, like PayPal, restrict services in Nigeria, forcing freelancers to rely on costly, inefficient alternatives.",
+          "Unfavorable exchange rates eat into their earnings, while long processing times disrupt cash flow. Worse still, international banks often flag transactions from Nigeria as high-risk, leading to unexpected payment holds. As a result, many freelancers resort to informal and risky methods to receive their hard-earned money.",
+        ],
+      },
+      {
+        id: "ux-challenge",
+        title: "The UX Challenge",
+        paragraphs: [
+          "How might we design a platform that addresses these core problems?",
+        ],
+        subsections: [
+          {
+            id: "send-money",
+            title: "1. Allows Nigerians abroad to send money home easily, affordably, and transparently?",
+            paragraphs: [
+              "Nigerians abroad rely on remittances to support loved ones, but high fees, slow transfers, and unclear exchange rates make the process frustrating. The goal was to design a fast, transparent, and affordable solution.",
+            ],
+            image: "/images/reeple/mobile-send-money.png",
+          },
+          {
+            id: "receive-payments",
+            title: "2. Provides African freelancers with a seamless way to receive their earnings in USD or NGN at competitive exchange rates?",
+            paragraphs: [
+              "Freelancers struggle to receive international payments due to platform restrictions, high fees, and poor exchange rates. The challenge was to provide a simple, cost-effective way to get paid in USD, GBP, CAD without delays.",
+            ],
+            image: "/images/reeple/mobile-wallet.png",
+          },
+          {
+            id: "trust-security",
+            title: "3. Build trust, security, and reliability into the remittance and payment experience?",
+            paragraphs: [
+              "Many users fear fraud, failed transactions, and poor support. The platform needed strong security, real-time updates, and reliable customer service to ensure confidence in every transaction.",
+            ],
+            image: "/images/reeple/mobile-onboarding.png",
+          },
+        ],
+      },
+      {
+        id: "business-outcome",
+        title: "Business Outcome",
+        paragraphs: [],
+        bullets: [
+          "Secured $290,000 in Techstars Funding – Validating Reeple’s innovative approach to remittances and freelancer payments, attracting key investors.",
+          "5,000+ Active Users Across iOS & Android – Rapid adoption by users who trust Reeple for seamless money transfers and payments.",
+          "$1M+ in Transaction Volume – Empowering African freelancers with better payment solutions and enabling Nigerians abroad to send money home efficiently.",
+        ],
       },
     ],
   },
