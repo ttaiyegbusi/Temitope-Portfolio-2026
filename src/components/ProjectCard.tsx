@@ -47,7 +47,7 @@ export function ProjectCard({
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="relative bg-bg-white h-[220px] md:h-[300px] w-full rounded-lg overflow-hidden"
+        className="relative bg-bg-white h-[260px] md:h-[300px] w-full rounded-lg overflow-hidden"
       >
         {video && (
           <video
