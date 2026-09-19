@@ -7,9 +7,10 @@ const CORD_REST_Y = 48;
 const PULL_THRESHOLD = 65;
 const HANDLE_SIZE = 28;
 
-function playSound(type: "pull" | "snap") {
+async function playSound(type: "pull" | "snap") {
   try {
     const ctx = new AudioContext();
+    if (ctx.state === "suspended") await ctx.resume();
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     osc.connect(gain);
