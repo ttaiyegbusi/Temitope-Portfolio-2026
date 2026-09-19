@@ -70,7 +70,7 @@ export default async function CaseStudyPage({
               {project.description}
             </p>
             {project.tags && project.tags.length > 0 && (
-              <div className="flex items-center gap-1.5 text-sm font-normal text-text-soft">
+              <div className="flex flex-wrap items-center gap-1.5 text-sm font-normal text-text-soft">
                 <span>{project.title}</span>
                 {project.tags.map((tag) => (
                   <span key={tag} className="flex items-center gap-1.5">
