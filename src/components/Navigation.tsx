@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTheme } from "./ThemeProvider";
-
 const navItems = [
   { href: "/", label: "Home", icon: HomeIcon },
   { href: "/work", label: "Work", icon: StackIcon },
@@ -13,7 +11,6 @@ const navItems = [
 
 export function Navigation() {
   const pathname = usePathname();
-  const { theme, toggle } = useTheme();
 
   return (
     <nav className="fixed bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-50">
@@ -46,38 +43,6 @@ export function Navigation() {
             </Link>
           );
         })}
-        <button
-          onClick={toggle}
-          aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
-          className="relative flex items-center justify-center w-6 h-6 cursor-pointer"
-          style={{
-            opacity: 0.4,
-            transition: "opacity 0.25s ease, transform 0.25s ease",
-          }}
-          onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.7"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.4"; }}
-        >
-          <span
-            className="absolute inset-0 flex items-center justify-center"
-            style={{
-              opacity: theme === "light" ? 1 : 0,
-              transform: theme === "light" ? "rotate(0deg) scale(1)" : "rotate(-90deg) scale(0)",
-              transition: "opacity 0.35s ease, transform 0.35s ease",
-            }}
-          >
-            <SunIcon />
-          </span>
-          <span
-            className="absolute inset-0 flex items-center justify-center"
-            style={{
-              opacity: theme === "dark" ? 1 : 0,
-              transform: theme === "dark" ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0)",
-              transition: "opacity 0.35s ease, transform 0.35s ease",
-            }}
-          >
-            <MoonIcon />
-          </span>
-        </button>
       </div>
     </nav>
   );
@@ -122,18 +87,3 @@ function StackOverflowIcon({ active }: { active: boolean }) {
   );
 }
 
-function SunIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12.0001 17.4001C10.5679 17.4001 9.19442 16.8312 8.18172 15.8185C7.16902 14.8058 6.6001 13.4323 6.6001 12.0001C6.6001 10.5679 7.16902 9.19442 8.18172 8.18172C9.19442 7.16902 10.5679 6.6001 12.0001 6.6001C13.4323 6.6001 14.8058 7.16902 15.8185 8.18172C16.8312 9.19442 17.4001 10.5679 17.4001 12.0001C17.4001 13.4323 16.8312 14.8058 15.8185 15.8185C14.8058 16.8312 13.4323 17.4001 12.0001 17.4001ZM12.0001 15.6001C12.9549 15.6001 13.8706 15.2208 14.5457 14.5457C15.2208 13.8706 15.6001 12.9549 15.6001 12.0001C15.6001 11.0453 15.2208 10.1296 14.5457 9.45451C13.8706 8.77938 12.9549 8.4001 12.0001 8.4001C11.0453 8.4001 10.1296 8.77938 9.45451 9.45451C8.77938 10.1296 8.4001 11.0453 8.4001 12.0001C8.4001 12.9549 8.77938 13.8706 9.45451 14.5457C10.1296 15.2208 11.0453 15.6001 12.0001 15.6001ZM11.1001 2.1001H12.9001V4.8001H11.1001V2.1001ZM11.1001 19.2001H12.9001V21.9001H11.1001V19.2001ZM4.3636 5.6362L5.6362 4.3636L7.5451 6.2725L6.2725 7.5451L4.3636 5.6371V5.6362ZM16.4551 17.7277L17.7277 16.4551L19.6366 18.364L18.364 19.6366L16.4551 17.7277ZM18.364 4.3627L19.6366 5.6362L17.7277 7.5451L16.4551 6.2725L18.364 4.3636V4.3627ZM6.2725 16.4551L7.5451 17.7277L5.6362 19.6366L4.3636 18.364L6.2725 16.4551ZM21.9001 11.1001V12.9001H19.2001V11.1001H21.9001ZM4.8001 11.1001V12.9001H2.1001V11.1001H4.8001Z" />
-    </svg>
-  );
-}
-
-function MoonIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-    </svg>
-  );
-}

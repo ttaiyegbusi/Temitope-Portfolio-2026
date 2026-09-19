@@ -150,9 +150,9 @@ export function CaseStudySidebar({ items }: { items: TocItem[] }) {
                   return (
                     <div key={sg.parent.id}>
                       {/* Level 1: sub-group header */}
-                      <div className="relative">
+                      <div className="relative flex items-center">
                         {isSgActive && (
-                          <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-text-strong" />
+                          <div className="absolute left-0 w-[2px] h-[20px] bg-text-strong" />
                         )}
                         <button
                           onClick={() => handleClick(sg.parent.id)}
@@ -201,9 +201,9 @@ export function CaseStudySidebar({ items }: { items: TocItem[] }) {
                 {leaves.map((leaf) => {
                   const isActive = activeId === leaf.id;
                   return (
-                    <div key={leaf.id} className="relative">
+                    <div key={leaf.id} className="relative flex items-center">
                       {isActive && (
-                        <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-text-strong" />
+                        <div className="absolute left-0 w-[2px] h-[20px] bg-text-strong" />
                       )}
                       <button
                         onClick={() => handleClick(leaf.id)}

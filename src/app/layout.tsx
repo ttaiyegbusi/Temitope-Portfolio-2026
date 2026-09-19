@@ -3,6 +3,7 @@ import { Inter, Geist_Mono } from "next/font/google";
 import { Navigation } from "@/components/Navigation";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { AppShell } from "@/components/AppShell";
+import { PullCord } from "@/components/PullCord";
 import "./globals.css";
 
 const inter = Inter({
@@ -33,6 +34,7 @@ export default function RootLayout({
           <AppShell>
             {children}
             <Navigation />
+            <PullCord />
           </AppShell>
         </ThemeProvider>
       </body>

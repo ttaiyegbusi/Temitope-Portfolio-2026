@@ -43,13 +43,13 @@ export function HomeContent() {
             <h1 className="text-lg md:text-xl font-normal text-black font-sans">
               Temitope Aiyegbusi
             </h1>
-            <div className="flex items-center gap-2 md:gap-3">
+            <div className="hidden md:flex items-center gap-3">
               <a
                 href="https://dribbble.com/ttaiyegbusi"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Dribbble"
-                className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-4 [&_svg]:h-4 md:[&_svg]:w-5 md:[&_svg]:h-5"
+                className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
               >
                 <DribbbleIcon />
               </a>
@@ -58,7 +58,7 @@ export function HomeContent() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-4 [&_svg]:h-4 md:[&_svg]:w-5 md:[&_svg]:h-5"
+                className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
               >
                 <LinkedInIcon />
               </a>
@@ -67,7 +67,7 @@ export function HomeContent() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-4 [&_svg]:h-4 md:[&_svg]:w-5 md:[&_svg]:h-5"
+                className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
               >
                 <GitHubIcon />
               </a>
@@ -76,7 +76,7 @@ export function HomeContent() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Layers"
-                className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-4 [&_svg]:h-4 md:[&_svg]:w-5 md:[&_svg]:h-5"
+                className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
               >
                 <LayersIcon />
               </a>
@@ -85,6 +85,44 @@ export function HomeContent() {
           <p className="text-sm md:text-base font-normal text-text-soft font-sans">
             Product Designer X Design Engineer
           </p>
+          <div className="flex md:hidden items-center gap-3 mt-3">
+            <a
+              href="https://dribbble.com/ttaiyegbusi"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Dribbble"
+              className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
+            >
+              <DribbbleIcon />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ttaiyegbusi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
+            >
+              <LinkedInIcon />
+            </a>
+            <a
+              href="https://github.com/ttaiyegbusi"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
+            >
+              <GitHubIcon />
+            </a>
+            <a
+              href="https://layers.to/tta"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Layers"
+              className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
+            >
+              <LayersIcon />
+            </a>
+          </div>
         </header>
       </CascadeReveal>
 
