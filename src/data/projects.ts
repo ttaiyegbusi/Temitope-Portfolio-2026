@@ -20,6 +20,8 @@ export interface Project {
   title: string;
   description: string;
   thumbnail?: string;
+  website?: string;
+  tags?: string[];
   tocItems: { id: string; label: string; level?: 1 | 2 }[];
   sections: ProjectSection[];
 }
@@ -28,7 +30,8 @@ export const projects: Project[] = [
   {
     slug: "chaincore",
     title: "ChainCore",
-    description: "Core Banking Application for the African Companies",
+    description: "Building Africa's first native core banking platform for 50+ financial institutions across Nigeria and the continent",
+    tags: ["SAAS", "Fintech"],
     thumbnail: "/images/chaincore/case-hero.jpg",
     tocItems: [
       { id: "context", label: "Context" },
@@ -213,7 +216,9 @@ export const projects: Project[] = [
   {
     slug: "knit",
     title: "Knit",
-    description: "Coordination Infrastructure for Close Friend Groups",
+    description: "Designing a social coordination app that helps friend groups plan, vote and show up to real-life events",
+    website: "https://www.ourknit.com/welcome",
+    tags: ["AI", "Social Networking"],
     thumbnail: "/images/knit/case-hero.jpg",
     tocItems: [
       { id: "context", label: "Context" },
@@ -231,8 +236,8 @@ export const projects: Project[] = [
       { id: "features-mobile", label: "Features (Mobile App)" },
       { id: "mobile-home", label: "Home", level: 1 },
       { id: "mobile-create-knit", label: "Create Knit", level: 1 },
-      { id: "mobile-join-link", label: "Join Knit — Link", level: 1 },
-      { id: "mobile-join-qr", label: "Join Knit — QR", level: 1 },
+      { id: "mobile-join-link", label: "Join Knit (Link)", level: 1 },
+      { id: "mobile-join-qr", label: "Join Knit (QR)", level: 1 },
       { id: "mobile-create-events", label: "Create Events", level: 1 },
       { id: "mobile-events", label: "Events", level: 1 },
       { id: "mobile-event-details", label: "Event Details", level: 1 },
@@ -261,7 +266,7 @@ export const projects: Project[] = [
         title: "Our Bet",
         paragraphs: [
           "Most products in the community consumer space are solving loneliness or trying to curb it by manufacturing novelty. Dating apps have been doing this forever but now it’s spreading to a wider market. Think Timeleft and InnerCircle. They’re asking you to create new experiences because you can be someone new with someone new.",
-          "Knit is making the opposite bet: the friendships you already have are also worth investing in. Those who know your lore, who show up to the functions, they know and show up when things are hard, those you actually want to see more of — those relationships deserve the same level of attention that other parts of your life has.",
+          "Knit is making the opposite bet: the friendships you already have are also worth investing in. Those who know your lore, who show up to the functions, they know and show up when things are hard, those you actually want to see more of, those relationships deserve the same level of attention that other parts of your life has.",
           "We’re building for existing friendships, that’s our differentiator.",
         ],
       },
@@ -304,7 +309,7 @@ export const projects: Project[] = [
             id: "create-event",
             title: "Create Event",
             paragraphs: [
-              "Creating an event on Knit is designed to feel effortless. The web experience walks organizers through every detail — from picking an event type and uploading a cover image to setting the date, writing a description, and choosing a location — all within a clean, focused interface.",
+              "Creating an event on Knit is designed to feel effortless. The web experience walks organizers through every detail, from picking an event type and uploading a cover image to setting the date, writing a description, and choosing a location, all within a clean, focused interface.",
             ],
             images: [
               "/images/knit/create-event/1.jpg",
@@ -329,7 +334,7 @@ export const projects: Project[] = [
             id: "event-details",
             title: "Event Details",
             paragraphs: [
-              "Once an event is live, the details page becomes the central hub. Organizers and guests can see everything at a glance — the event image, location, guest count, RSVP status, host info, event kit assignments, and a blast feed for real-time updates and conversation.",
+              "Once an event is live, the details page becomes the central hub. Organizers and guests can see everything at a glance: the event image, location, guest count, RSVP status, host info, event kit assignments, and a blast feed for real-time updates and conversation.",
             ],
             images: [
               "/images/knit/event-details/1.jpg",
@@ -406,7 +411,7 @@ export const projects: Project[] = [
             id: "knit-place",
             title: "Knit Place",
             paragraphs: [
-              "Knit Place is where groups discover and manage their go-to spots. From saved locations and routes to place-specific details, it gives the group a shared spatial memory — so finding where to go next time is never a debate.",
+              "Knit Place is where groups discover and manage their go-to spots. From saved locations and routes to place-specific details, it gives the group a shared spatial memory, so finding where to go next time is never a debate.",
             ],
             images: [
               "/images/knit/knit-place/1.jpg",
@@ -499,7 +504,7 @@ export const projects: Project[] = [
           },
           {
             id: "mobile-join-link",
-            title: "Join Knit — Link",
+            title: "Join Knit (Link)",
             paragraphs: [
               "Joining by link is frictionless. Paste an invite link, preview the group and its plans, and hop in with a single tap.",
             ],
@@ -518,7 +523,7 @@ export const projects: Project[] = [
           },
           {
             id: "mobile-join-qr",
-            title: "Join Knit — QR",
+            title: "Join Knit (QR)",
             paragraphs: [
               "Prefer to join in person? Scan a friend's QR code to find the Knit instantly and confirm your spot.",
             ],
@@ -529,7 +534,7 @@ export const projects: Project[] = [
             ],
             captions: [
               "Open Join Knit and choose to scan a QR code",
-              "Point at the code — searching, then Knit found",
+              "Point at the code to search, then the Knit is found",
               "Preview the group and tap Join knit",
             ],
           },
@@ -583,7 +588,7 @@ export const projects: Project[] = [
             id: "mobile-event-details",
             title: "Event Details",
             paragraphs: [
-              "The event detail page is the hub for a single plan. See the cover, description, location, and time, browse guests and their RSVP status, and manage the event kit — all across a few tabs.",
+              "The event detail page is the hub for a single plan. See the cover, description, location, and time, browse guests and their RSVP status, and manage the event kit, all across a few tabs.",
             ],
             images: [
               "/images/knit/mobile/event-details/1.jpg",
@@ -628,7 +633,8 @@ export const projects: Project[] = [
   {
     slug: "yaraa",
     title: "Yaraa",
-    description: "An Enterprise Resource Planning Platform",
+    description: "Rethinking enterprise procurement and resource planning for mid-market companies across multiple industries",
+    tags: ["AI", "SAAS", "ERP System"],
     tocItems: [
       { id: "context", label: "Context" },
       { id: "problem", label: "Problem" },
@@ -645,7 +651,8 @@ export const projects: Project[] = [
   {
     slug: "reeple",
     title: "Reeple",
-    description: "Remittances & Payments for Nigerians and African Freelancers",
+    description: "Powering $1M+ in remittances for 5,000+ users and helping African freelancers get paid faster across borders",
+    tags: ["Fintech"],
     thumbnail: "/images/reeple/hero.png",
     tocItems: [
       { id: "introduction", label: "Introduction" },
@@ -661,7 +668,7 @@ export const projects: Project[] = [
         id: "introduction",
         title: "Introduction - More Than Just a Money Transfer",
         paragraphs: [
-          "For millions of Nigerians abroad, sending money home is not just a financial necessity—it’s a connection to family, culture, and responsibility. Remittances help pay for essentials like school fees, healthcare, and household expenses.",
+          "For millions of Nigerians abroad, sending money home is not just a financial necessity, it’s a connection to family, culture, and responsibility. Remittances help pay for essentials like school fees, healthcare, and household expenses.",
           "In 2022 alone, Nigeria received over $20 billion in remittances, yet the process remains expensive, slow, and often unclear, leaving users frustrated. Many existing platforms lack transparency, charge high fees, and delay transactions, creating uncertainty for both senders and recipients.",
         ],
       },
@@ -738,7 +745,8 @@ export const projects: Project[] = [
   {
     slug: "timein-plus",
     title: "Timein Plus",
-    description: "All in one Human Resource Management Platform.",
+    description: "Streamlining HR operations, payroll and employee management for growing teams and organisations",
+    tags: ["HRM", "SAAS"],
     tocItems: [
       { id: "context", label: "Context" },
     ],
@@ -753,7 +761,8 @@ export const projects: Project[] = [
   {
     slug: "turbo",
     title: "Turbo",
-    description: "The Fastest Way to receive money and pay for bills",
+    description: "Designing a mobile-first fintech experience that makes receiving money and paying bills instant across Nigeria",
+    tags: ["AI", "SAAS", "ERP System"],
     tocItems: [
       { id: "context", label: "Context" },
     ],
@@ -768,7 +777,8 @@ export const projects: Project[] = [
   {
     slug: "footballbooth",
     title: "FootballBooth",
-    description: "Fostering Community and Connection via Football.",
+    description: "Building a social platform that connects football fans through communities, live discussions and trending content",
+    tags: ["AI", "SAAS", "ERP System"],
     tocItems: [
       { id: "context", label: "Context" },
     ],
@@ -783,7 +793,8 @@ export const projects: Project[] = [
   {
     slug: "wiremoney",
     title: "Wiremoney",
-    description: "Expanding Wiremoney into over 13 New International Markets and Territories",
+    description: "Scaling a cross-border payments platform from a single market into 13+ new international markets and territories",
+    tags: ["Fintech", "Payments"],
     tocItems: [
       { id: "context", label: "Context" },
     ],

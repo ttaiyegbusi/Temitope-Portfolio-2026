@@ -64,6 +64,47 @@ export default async function CaseStudyPage({
 
         {/* Content */}
         <div className="flex-1 min-w-0 flex flex-col gap-5">
+          {/* Tagline — leads the page */}
+          <div className="flex flex-col gap-3">
+            <p className="max-w-[600px] text-lg font-normal text-black leading-[28px]">
+              {project.description}
+            </p>
+            {project.tags && project.tags.length > 0 && (
+              <div className="flex items-center gap-1.5 text-sm font-normal text-text-soft">
+                <span>{project.title}</span>
+                {project.tags.map((tag) => (
+                  <span key={tag} className="flex items-center gap-1.5">
+                    <span className="w-1 h-1 rounded-full bg-text-soft inline-block" />
+                    <span>{tag}</span>
+                  </span>
+                ))}
+              </div>
+            )}
+            {project.website && (
+              <a
+                href={project.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 w-fit text-base text-blue-600 hover:text-blue-700 hover:underline transition-colors"
+              >
+                Visit Website
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M7 17 17 7" />
+                  <path d="M7 7h10v10" />
+                </svg>
+              </a>
+            )}
+          </div>
+
           {/* Hero image */}
           {project.thumbnail ? (
             <div className="w-full rounded-lg overflow-hidden">
@@ -79,37 +120,29 @@ export default async function CaseStudyPage({
             <div className="bg-bg-white h-[220px] md:h-[400px] w-full rounded-lg" />
           )}
 
-          {/* Project title */}
-          <div className="flex flex-col gap-1">
-            <h1 className="text-lg font-normal text-black">{project.title}</h1>
-            <p className="text-base font-normal text-text-soft font-mono">
-              {project.description}
-            </p>
-          </div>
-
           {/* Sections */}
           <div className="flex flex-col gap-10 mt-5">
             {project.sections.map((section) => (
               <section key={section.id} id={section.id} className="flex flex-col gap-2.5">
-                <h2 className="text-base font-normal text-black">
+                <h2 className="text-xs font-normal uppercase tracking-[0.1em] text-text-soft leading-[24px]">
                   {section.title}
                 </h2>
 
                 {section.paragraphs.map((p, i) => (
                   <p
                     key={i}
-                    className="text-base font-normal text-text-sub leading-[24px]"
+                    className="max-w-[600px] text-base font-normal text-text-sub leading-[24px] tracking-[0.01em]"
                   >
                     {p}
                   </p>
                 ))}
 
                 {section.bullets && (
-                  <ul className="list-disc ml-6 flex flex-col gap-1">
+                  <ul className="list-disc ml-6 flex flex-col gap-1 max-w-[600px]">
                     {section.bullets.map((b, i) => (
                       <li
                         key={i}
-                        className="text-base text-text-sub leading-[24px]"
+                        className="text-base text-text-sub leading-[24px] tracking-[0.01em]"
                       >
                         {b}
                       </li>
@@ -135,13 +168,13 @@ export default async function CaseStudyPage({
                     id={sub.id}
                     className="flex flex-col gap-2.5 mt-5"
                   >
-                    <h3 className="text-base font-normal text-black">
+                    <h3 className="text-base font-normal text-text-strong leading-[24px]">
                       {sub.title}
                     </h3>
                     {sub.paragraphs.map((p, i) => (
                       <p
                         key={i}
-                        className="text-base font-normal text-text-sub leading-[24px]"
+                        className="max-w-[600px] text-base font-normal text-text-sub leading-[24px] tracking-[0.01em]"
                       >
                         {p}
                       </p>
@@ -181,7 +214,7 @@ export default async function CaseStudyPage({
                                 </div>
                               </ImageLightbox>
                               {sub.captions && sub.captions[i] && (
-                                <p className="text-sm text-text-sub text-center">{sub.captions[i]}</p>
+                                <p className="text-sm text-text-sub text-center leading-[24px] tracking-[0.01em]">{sub.captions[i]}</p>
                               )}
                             </div>
                           ))}
