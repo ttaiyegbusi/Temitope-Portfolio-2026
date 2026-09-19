@@ -9,6 +9,7 @@ interface ProjectCardProps {
   description: string;
   slug: string;
   thumbnail?: string;
+  mobileThumbnail?: string;
   video?: string;
   tags?: string[];
 }
@@ -18,6 +19,7 @@ export function ProjectCard({
   description,
   slug,
   thumbnail,
+  mobileThumbnail,
   video,
   tags,
 }: ProjectCardProps) {
@@ -49,7 +51,7 @@ export function ProjectCard({
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="relative bg-bg-white h-[270px] md:h-[300px] w-full rounded-lg overflow-hidden"
+        className="relative bg-bg-white h-[280px] md:h-[300px] w-full rounded-lg overflow-hidden"
       >
         {video && (
           <video
@@ -63,13 +65,26 @@ export function ProjectCard({
           />
         )}
         {thumbnail && !video && (
-          <Image
-            src={thumbnail}
-            alt={title}
-            width={390}
-            height={300}
-            className="w-full h-full object-cover"
-          />
+          <>
+            {mobileThumbnail && (
+              <Image
+                src={mobileThumbnail}
+                alt={title}
+                width={1050}
+                height={900}
+                quality={95}
+                className="w-full h-full object-cover md:hidden"
+              />
+            )}
+            <Image
+              src={thumbnail}
+              alt={title}
+              width={800}
+              height={600}
+              quality={90}
+              className={`w-full h-full object-cover ${mobileThumbnail ? "hidden md:block" : ""}`}
+            />
+          </>
         )}
         <span
           className="pointer-events-none absolute whitespace-nowrap text-sm font-medium text-text-strong bg-bg-white border border-stroke-soft rounded-full px-5 py-2.5 shadow-sm transition-opacity duration-200 -translate-x-1/2 -translate-y-1/2 hidden md:block"

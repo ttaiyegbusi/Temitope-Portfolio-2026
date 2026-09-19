@@ -10,6 +10,7 @@ const projects = [
     description: "Core Banking Application for the African Companies and Market.",
     slug: "chaincore",
     thumbnail: "/images/chaincore/hero.jpg",
+    mobileThumbnail: "/images/chaincore/mobile.png",
     tags: ["SAAS", "Fintech"],
   },
   {
@@ -17,6 +18,7 @@ const projects = [
     description: "Core Banking Application for the African Companies and Market.",
     slug: "knit",
     thumbnail: "/images/knit/hero.jpg",
+    mobileThumbnail: "/images/knit/mobile.png",
     tags: ["AI", "Social Networking"],
   },
   {
@@ -24,6 +26,7 @@ const projects = [
     description: "Transforming Remittances & Payments for Nigerians and African Freelancers",
     slug: "reeple",
     thumbnail: "/images/reeple/card.jpg",
+    mobileThumbnail: "/images/reeple/mobile.png",
     tags: ["Fintech"],
   },
   {
@@ -31,6 +34,7 @@ const projects = [
     description: "Revolutionising the Enterprise Resource Management Industry.",
     slug: "yaraa",
     thumbnail: "/images/yaraa/hero.jpg",
+    mobileThumbnail: "/images/yaraa/mobile.png",
     tags: ["AI", "SAAS", "ERP System"],
   },
   {
@@ -38,6 +42,7 @@ const projects = [
     description: "All in one Human Resource Management Platform.",
     slug: "timein-plus",
     thumbnail: "/images/timein-plus/hero.jpg",
+    mobileThumbnail: "/images/timein-plus/mobile.png",
     tags: ["HRM", "SAAS"],
   },
   {
@@ -45,6 +50,7 @@ const projects = [
     description: "The Fastest Way to receive money and pay for bills",
     slug: "turbo",
     thumbnail: "/images/turbo/hero.jpg",
+    mobileThumbnail: "/images/turbo/mobile.png",
     tags: ["AI", "SAAS", "ERP System"],
   },
   {
@@ -52,6 +58,7 @@ const projects = [
     description: "Fostering Community and Connection via Football.",
     slug: "footballbooth",
     thumbnail: "/images/footballbooth/hero.jpg",
+    mobileThumbnail: "/images/footballbooth/mobile.png",
     tags: ["AI", "SAAS", "ERP System"],
   },
   {
@@ -130,6 +137,28 @@ export function HomeContent() {
           ))}
         </section>
       </CascadeReveal>
+
+      {/* Fun Projects */}
+      <CascadeReveal delay={360} ready={ready}>
+        <section className="max-w-[550px] mx-auto mt-20 flex flex-col gap-5">
+          <p className="text-sm font-normal text-text-soft">Fun Projects</p>
+          <ul className="flex flex-col gap-4">
+            {[
+              "A Figma inspired Portfolio",
+              "Notes Web App",
+              "Fun Keyboard",
+              "WishPop - creating wish lists for gift sharing .",
+              "DevFest 2026 Website",
+              "Audio Player",
+            ].map((item) => (
+              <li key={item} className="flex items-center gap-3">
+                <StackIcon />
+                <span className="text-sm md:text-base font-normal text-black">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </CascadeReveal>
     </main>
   );
 }
@@ -140,6 +169,16 @@ function chunkArray<T>(array: T[], size: number): T[][] {
     chunks.push(array.slice(i, i + size));
   }
   return chunks;
+}
+
+function StackIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-text-soft shrink-0">
+      <path d="M12 2L2 7l10 5 10-5-10-5Z" />
+      <path d="M2 17l10 5 10-5" />
+      <path d="M2 12l10 5 10-5" />
+    </svg>
+  );
 }
 
 function DribbbleIcon() {
