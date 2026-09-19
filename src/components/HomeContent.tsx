@@ -61,13 +61,13 @@ const projects = [
     mobileThumbnail: "/images/footballbooth/mobile.png",
     tags: ["AI", "SAAS", "ERP System"],
   },
-  {
-    title: "Wiremoney",
-    description: "Expanding Wiremoney into over 13 New International Markets and Territories",
-    slug: "wiremoney",
-    thumbnail: "/images/wiremoney/hero.jpg",
-    tags: ["AI", "Social Networking"],
-  },
+  // {
+  //   title: "Wiremoney",
+  //   description: "Expanding Wiremoney into over 13 New International Markets and Territories",
+  //   slug: "wiremoney",
+  //   thumbnail: "/images/wiremoney/hero.jpg",
+  //   tags: ["AI", "Social Networking"],
+  // },
 ];
 
 export function HomeContent() {
@@ -127,9 +127,9 @@ export function HomeContent() {
 
       {/* Work */}
       <CascadeReveal delay={240} ready={ready}>
-        <section className="max-w-[700px] mx-auto mt-16 flex flex-col gap-10">
+        <section className="max-w-[700px] mx-auto mt-16 flex flex-col gap-12 md:gap-10">
           {chunkArray(projects, 2).map((row, rowIndex) => (
-            <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-5">
               {row.map((project) => (
                 <ProjectCard key={project.slug} {...project} />
               ))}
