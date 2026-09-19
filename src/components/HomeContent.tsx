@@ -7,7 +7,7 @@ import { useAppReady } from "@/components/AppShell";
 const projects = [
   {
     title: "ChainCore",
-    description: "Core Banking Application for the African Companies and Market.",
+    description: "Building Africa's first native core banking platform for 50+ financial institutions across Nigeria and the continent",
     slug: "chaincore",
     thumbnail: "/images/chaincore/hero.jpg",
     mobileThumbnail: "/images/chaincore/mobile.png",
@@ -15,7 +15,7 @@ const projects = [
   },
   {
     title: "Knit",
-    description: "Core Banking Application for the African Companies and Market.",
+    description: "Designing a social coordination app that helps friend groups plan, vote and show up to real-life events",
     slug: "knit",
     thumbnail: "/images/knit/hero.jpg",
     mobileThumbnail: "/images/knit/mobile.png",
@@ -23,7 +23,7 @@ const projects = [
   },
   {
     title: "Reeple",
-    description: "Transforming Remittances & Payments for Nigerians and African Freelancers",
+    description: "Powering $1M+ in remittances for 5,000+ users and helping African freelancers get paid faster across borders",
     slug: "reeple",
     thumbnail: "/images/reeple/card.jpg",
     mobileThumbnail: "/images/reeple/mobile.png",
@@ -31,7 +31,7 @@ const projects = [
   },
   {
     title: "Yaraa",
-    description: "Revolutionising the Enterprise Resource Management Industry.",
+    description: "Rethinking enterprise procurement and resource planning for mid-market companies across multiple industries",
     slug: "yaraa",
     thumbnail: "/images/yaraa/hero.jpg",
     mobileThumbnail: "/images/yaraa/mobile.png",
@@ -39,7 +39,7 @@ const projects = [
   },
   {
     title: "Timein Plus",
-    description: "All in one Human Resource Management Platform.",
+    description: "Streamlining HR operations, payroll and employee management for growing teams and organisations",
     slug: "timein-plus",
     thumbnail: "/images/timein-plus/hero.jpg",
     mobileThumbnail: "/images/timein-plus/mobile.png",
@@ -47,7 +47,7 @@ const projects = [
   },
   {
     title: "Turbo",
-    description: "The Fastest Way to receive money and pay for bills",
+    description: "Designing a mobile-first fintech experience that makes receiving money and paying bills instant across Nigeria",
     slug: "turbo",
     thumbnail: "/images/turbo/hero.jpg",
     mobileThumbnail: "/images/turbo/mobile.png",
@@ -55,19 +55,19 @@ const projects = [
   },
   {
     title: "FootballBooth",
-    description: "Fostering Community and Connection via Football.",
+    description: "Building a social platform that connects football fans through communities, live discussions and trending content",
     slug: "footballbooth",
     thumbnail: "/images/footballbooth/hero.jpg",
     mobileThumbnail: "/images/footballbooth/mobile.png",
     tags: ["AI", "SAAS", "ERP System"],
   },
-  // {
-  //   title: "Wiremoney",
-  //   description: "Expanding Wiremoney into over 13 New International Markets and Territories",
-  //   slug: "wiremoney",
-  //   thumbnail: "/images/wiremoney/hero.jpg",
-  //   tags: ["AI", "Social Networking"],
-  // },
+  {
+    title: "Wiremoney",
+    description: "Scaling a cross-border payments platform from a single market into 13+ new international markets and territories",
+    slug: "wiremoney",
+    thumbnail: "/images/wiremoney/hero.jpg",
+    tags: ["Fintech", "Payments"],
+  },
 ];
 
 export function HomeContent() {
@@ -142,7 +142,7 @@ export function HomeContent() {
       <CascadeReveal delay={360} ready={ready}>
         <section className="max-w-[550px] mx-auto mt-20 flex flex-col gap-5">
           <p className="text-sm font-normal text-text-soft">Fun Projects</p>
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col">
             {[
               "A Figma inspired Portfolio",
               "Notes Web App",
@@ -151,7 +151,7 @@ export function HomeContent() {
               "DevFest 2026 Website",
               "Audio Player",
             ].map((item) => (
-              <li key={item} className="flex items-center gap-3">
+              <li key={item} className="flex items-center gap-3 py-2 px-2 -mx-2 rounded-lg hover:bg-stroke-soft/50 transition-colors cursor-pointer">
                 <StackIcon />
                 <span className="text-sm md:text-base font-normal text-black">{item}</span>
               </li>
