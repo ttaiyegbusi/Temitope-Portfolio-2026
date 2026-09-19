@@ -71,7 +71,7 @@ export function ProjectCard({
                 src={mobileThumbnail}
                 alt={title}
                 width={1050}
-                height={900}
+                height={810}
                 quality={95}
                 className="w-full h-full object-cover md:hidden"
               />
