@@ -9,6 +9,7 @@ export interface ProjectSection {
     paragraphs: string[];
     image?: boolean | string;
     images?: string[];
+    captions?: string[];
     video?: string;
   }[];
   image?: boolean | string;

@@ -27,7 +27,7 @@ function playTick(ctx: AudioContext) {
 export function Preloader({ onFinish }: { onFinish: () => void }) {
   const [chars, setChars] = useState<string[]>(() =>
     TARGET.split("").map((ch) =>
-      ch === " " ? " " : CHARS[Math.floor(Math.random() * CHARS.length)]
+      ch === " " ? " " : CHARS[0]
     )
   );
   const [cursorPos, setCursorPos] = useState(-1);
