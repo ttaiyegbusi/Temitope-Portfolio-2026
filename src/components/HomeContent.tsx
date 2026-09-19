@@ -66,6 +66,7 @@ const projects = [
     description: "Scaling a cross-border payments platform from a single market into 13+ new international markets and territories",
     slug: "wiremoney",
     thumbnail: "/images/wiremoney/hero.jpg",
+    mobileThumbnail: "/images/wiremoney/mobile.png",
     tags: ["Fintech", "Payments"],
   },
 ];
