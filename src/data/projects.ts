@@ -220,13 +220,14 @@ export const projects: Project[] = [
       { id: "problem", label: "Problem" },
       { id: "our-bet", label: "Our Bet" },
       { id: "who-is-knit-for", label: "Who is Knit For?" },
-      { id: "features", label: "Features" },
+      { id: "features", label: "Features (Web)" },
       { id: "onboarding", label: "Onboarding", level: 1 },
       { id: "create-event", label: "Create Event", level: 1 },
       { id: "event-details", label: "Event Details", level: 1 },
       { id: "event-kit", label: "Event Kit", level: 1 },
       { id: "smart-suggestion", label: "Smart Suggestion", level: 1 },
       { id: "knit-place", label: "Knit Place", level: 1 },
+      { id: "knit-settings", label: "Knit Settings", level: 1 },
     ],
     sections: [
       {
@@ -266,7 +267,7 @@ export const projects: Project[] = [
       },
       {
         id: "features",
-        title: "Features",
+        title: "Features (Web)",
         paragraphs: [],
         subsections: [
           {
@@ -327,8 +328,10 @@ export const projects: Project[] = [
               "/images/knit/event-details/3.jpg",
               "/images/knit/event-details/4.jpg",
               "/images/knit/event-details/5.jpg",
+              "/images/knit/event-details/6.jpg",
             ],
             captions: [
+              "Full event overview with image, location, guests, kit, and blasts",
               "View event info and guest list at a glance",
               "See RSVP status and event kit assignments",
               "Check the event timeline and updates",
@@ -348,8 +351,10 @@ export const projects: Project[] = [
               "/images/knit/event-kit/3.jpg",
               "/images/knit/event-kit/4.jpg",
               "/images/knit/event-kit/5.jpg",
+              "/images/knit/event-kit/6.jpg",
             ],
             captions: [
+              "Open the Event Kit modal to add and assign items",
               "Create tasks and break down what's needed",
               "View all items organized by category",
               "Assign tasks to specific guests",
@@ -373,8 +378,10 @@ export const projects: Project[] = [
               "/images/knit/smart-suggestion/7.jpg",
               "/images/knit/smart-suggestion/8.jpg",
               "/images/knit/smart-suggestion/9.jpg",
+              "/images/knit/smart-suggestion/10.jpg",
             ],
             captions: [
+              "Choose between Personal or Group suggestions to get started",
               "Pick a vibe to discover what to do with your group",
               "Narrow it down by choosing a cuisine or activity type",
               "Browse location-based suggestions tailored to your preference",
@@ -397,12 +404,33 @@ export const projects: Project[] = [
               "/images/knit/knit-place/2.jpg",
               "/images/knit/knit-place/3.jpg",
               "/images/knit/knit-place/4.jpg",
+              "/images/knit/knit-place/5.jpg",
             ],
             captions: [
+              "Personal places tab with empty state to start adding spots",
               "View all saved places sorted by when you plan to visit",
               "Add a new place with a name, location, and visit timeline",
               "Search and pin the exact location from the map",
               "See place history, past events, and add it to the group list",
+            ],
+          },
+          {
+            id: "knit-settings",
+            title: "Knit Settings",
+            paragraphs: [
+              "Knit Settings gives users full control over their account and preferences. From personalizing their interest graph to managing security, notifications, and sound alerts, every setting is designed to keep the experience tailored and secure.",
+            ],
+            images: [
+              "/images/knit/knit-settings/1.jpg",
+              "/images/knit/knit-settings/2.jpg",
+              "/images/knit/knit-settings/3.jpg",
+              "/images/knit/knit-settings/4.jpg",
+            ],
+            captions: [
+              "Edit your profile, cover image, name, and bio",
+              "Customize your interest graph by selecting tags across categories",
+              "Manage passwords, linked devices, and account security",
+              "Configure notification preferences and sound alerts",
             ],
           },
         ],
