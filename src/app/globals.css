@@ -88,6 +88,30 @@ html[data-transitioning] *::after {
   animation: lightbox-scale 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+@keyframes cursor-blink {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0; }
+}
+
+@keyframes cascade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cascade-section {
+  opacity: 0;
+}
+
+.cascade-section.revealed {
+  animation: cascade-in 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
 @media (max-width: 767px) {
   html, body {
     scrollbar-width: none;

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import { Navigation } from "@/components/Navigation";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { AppShell } from "@/components/AppShell";
 import "./globals.css";
 
 const inter = Inter({
@@ -29,8 +30,10 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${geistMono.variable}`}>
       <body className="antialiased">
         <ThemeProvider>
-          {children}
-          <Navigation />
+          <AppShell>
+            {children}
+            <Navigation />
+          </AppShell>
         </ThemeProvider>
       </body>
     </html>
