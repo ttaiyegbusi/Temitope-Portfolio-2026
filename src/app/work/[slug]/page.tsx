@@ -5,6 +5,8 @@ import { projects, getProject } from "@/data/projects";
 import { CaseStudySidebar } from "@/components/CaseStudySidebar";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { MobileScrollbar } from "@/components/MobileScrollbar";
+import { DragScroll } from "@/components/DragScroll";
+import { ImageLightbox } from "@/components/ImageLightbox";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -22,7 +24,7 @@ export default async function CaseStudyPage({
   return (
     <div data-page-transition className="page-transition-enter">
     <MobileScrollbar items={project.tocItems} />
-    <main className="w-full max-w-[800px] mx-auto px-5 md:px-6 pb-28 md:pb-32">
+    <main className="w-full max-w-[960px] mx-auto px-5 md:px-6 pb-28 md:pb-32">
       {/* Sticky top bar */}
       <div className="sticky top-0 z-40 mb-4">
         <div className="bg-bg pt-10 md:pt-14 pb-4">
@@ -148,15 +150,36 @@ export default async function CaseStudyPage({
                       <VideoPlayer src={sub.video} />
                     )}
                     {typeof sub.image === "string" && !sub.video && (
-                      <div className="w-full rounded-lg overflow-hidden">
-                        <Image
-                          src={sub.image}
-                          alt={sub.title}
-                          width={1200}
-                          height={600}
-                          className="w-full h-auto"
-                        />
-                      </div>
+                      <ImageLightbox src={sub.image} alt={sub.title}>
+                        <div className="w-full rounded-lg overflow-hidden">
+                          <Image
+                            src={sub.image}
+                            alt={sub.title}
+                            width={2000}
+                            height={600}
+                            quality={95}
+                            className="w-full h-auto"
+                          />
+                        </div>
+                      </ImageLightbox>
+                    )}
+                    {sub.images && sub.images.length > 0 && (
+                      <DragScroll className="flex gap-5 overflow-x-auto pb-4 -mr-5 md:-mr-6 pr-5 md:pr-6">
+                        {sub.images.map((img, i) => (
+                          <ImageLightbox key={i} src={img} alt={`${sub.title} ${i + 1}`}>
+                            <div className="shrink-0 w-[80vw] md:w-[460px] overflow-hidden rounded-lg">
+                              <Image
+                                src={img}
+                                alt={`${sub.title} ${i + 1}`}
+                                width={1400}
+                                height={1000}
+                                quality={95}
+                                className="w-full h-auto pointer-events-none"
+                              />
+                            </div>
+                          </ImageLightbox>
+                        ))}
+                      </DragScroll>
                     )}
                     {sub.image === true && !sub.video && (
                       <div className="bg-bg-white h-[200px] md:h-[350px] w-full rounded-lg" />

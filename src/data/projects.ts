@@ -8,6 +8,7 @@ export interface ProjectSection {
     title: string;
     paragraphs: string[];
     image?: boolean | string;
+    images?: string[];
     video?: string;
   }[];
   image?: boolean | string;
@@ -27,6 +28,7 @@ export const projects: Project[] = [
     slug: "chaincore",
     title: "ChainCore",
     description: "Core Banking Application for the African Companies",
+    thumbnail: "/images/chaincore/case-hero.jpg",
     tocItems: [
       { id: "context", label: "Context" },
       { id: "problem", label: "Problem" },
@@ -210,17 +212,131 @@ export const projects: Project[] = [
   {
     slug: "knit",
     title: "Knit",
-    description: "Core Banking Application for the African Companies and Market.",
+    description: "Coordination Infrastructure for Close Friend Groups",
+    thumbnail: "/images/knit/case-hero.jpg",
     tocItems: [
       { id: "context", label: "Context" },
       { id: "problem", label: "Problem" },
-      { id: "solution", label: "Solution" },
+      { id: "our-bet", label: "Our Bet" },
+      { id: "who-is-knit-for", label: "Who is Knit For?" },
+      { id: "features", label: "Features" },
+      { id: "onboarding", label: "Onboarding", level: 1 },
+      { id: "create-event", label: "Create Event", level: 1 },
+      { id: "event-details", label: "Event Details", level: 1 },
+      { id: "event-kit", label: "Event Kit", level: 1 },
+      { id: "knit-place", label: "Knit Place", level: 1 },
     ],
     sections: [
       {
         id: "context",
         title: "Context",
-        paragraphs: ["Coming soon."],
+        paragraphs: [
+          "Knit is a consumer app for small, intimate groups of friends to coordinate, meet consistently and grow closer over time. It is not a social network or a stranger-matching platform and it also does not want to replace \"the group chat\". It is infrastructure for friendships that already exist.",
+        ],
+      },
+      {
+        id: "problem",
+        title: "Problem",
+        paragraphs: [
+          "Most friendships don’t end dramatically, they fade slowly without anyone deciding it should happen. It’s quite unfortunate that the plans stop materialising and distance begins to grow between the friends in the group.",
+          "We don’t think this happens because people stop caring, but usually caring is not enough. Life gets in the way for different people or everyone in the group and more importantly, someone has to do the work. Someone has to chase people’s availability especially if the date is not fixed, find a date and pick somewhere to go that everyone would like.",
+          "We also noticed that the bigger the friend group, the more likely the planning is going to land on the same person each time and over time, they will get tired.",
+          "We believe this is a solvable problem, not necessarily with a synced calendar integration or asking friends to meet strangers every Friday over dinner but with tools built specifically for small, close friend groups in mind that actually work.",
+        ],
+      },
+      {
+        id: "our-bet",
+        title: "Our Bet",
+        paragraphs: [
+          "Most products in the community consumer space are solving loneliness or trying to curb it by manufacturing novelty. Dating apps have been doing this forever but now it’s spreading to a wider market. Think Timeleft and InnerCircle. They’re asking you to create new experiences because you can be someone new with someone new.",
+          "Knit is making the opposite bet: the friendships you already have are also worth investing in. Those who know your lore, who show up to the functions, they know and show up when things are hard, those you actually want to see more of — those relationships deserve the same level of attention that other parts of your life has.",
+          "We’re building for existing friendships, that’s our differentiator.",
+        ],
+      },
+      {
+        id: "who-is-knit-for",
+        title: "Who is Knit For?",
+        paragraphs: [
+          "In most friend groups, one person carries the burden of planning. They find and organize events, chase RSVPs, check the options out and make the required bookings. That weight compounds over time and across multiple friend groups and can be quite frustrating.",
+          "Knit is designed to meet that person first, it’s designed around them to make that weight feel significantly lighter. The goal is never to make them carry more, but to slowly distribute the load across the entire group so everyone feels equipped to make plans moving forward. We aim to build tools around this conundrum until showing up feels easy for everyone.",
+          "A group of people makes up a Knit. Everyone matters inside the Knit and their availability, interests and presence shapes what the group does each time.",
+        ],
+      },
+      {
+        id: "features",
+        title: "Features",
+        paragraphs: [],
+        subsections: [
+          {
+            id: "onboarding",
+            title: "Onboarding",
+            paragraphs: [
+              "The onboarding experience is designed to feel personal from the very first step. Rather than dumping users into an empty dashboard, Knit walks them through a guided setup that captures who they are and what they enjoy doing with friends.",
+            ],
+            images: [
+              "/images/knit/onboarding/signup.jpg",
+              "/images/knit/onboarding/verify.jpg",
+              "/images/knit/onboarding/interests-food.jpg",
+              "/images/knit/onboarding/interests-sports.jpg",
+              "/images/knit/onboarding/interests-chill.jpg",
+            ],
+          },
+          {
+            id: "create-event",
+            title: "Create Event",
+            paragraphs: [
+              "Creating an event on Knit is designed to feel effortless. The web experience walks organizers through every detail — from picking an event type and uploading a cover image to setting the date, writing a description, and choosing a location — all within a clean, focused interface.",
+            ],
+            images: [
+              "/images/knit/create-event/1.png",
+              "/images/knit/create-event/2.png",
+              "/images/knit/create-event/3.png",
+              "/images/knit/create-event/4.png",
+              "/images/knit/create-event/5.png",
+              "/images/knit/create-event/6.png",
+              "/images/knit/create-event/7.png",
+              "/images/knit/create-event/8.png",
+            ],
+          },
+          {
+            id: "event-details",
+            title: "Event Details",
+            paragraphs: [
+              "Once an event is live, the details page becomes the central hub. Organizers and guests can see everything at a glance — the event image, location, guest count, RSVP status, host info, event kit assignments, and a blast feed for real-time updates and conversation.",
+            ],
+            images: [
+              "/images/knit/event-details/1.jpg",
+              "/images/knit/event-details/2.jpg",
+              "/images/knit/event-details/3.jpg",
+              "/images/knit/event-details/4.jpg",
+              "/images/knit/event-details/5.jpg",
+              "/images/knit/event-details/6.jpg",
+            ],
+          },
+          {
+            id: "event-kit",
+            title: "Event Kit",
+            paragraphs: [
+              "The Event Kit lets organizers break down what's needed for an event and assign items to specific guests. From snacks and drinks to tents and gear, the kit distributes the load so one person isn't stuck handling everything alone.",
+            ],
+            images: [
+              "/images/knit/event-kit/1.jpg",
+              "/images/knit/event-kit/2.jpg",
+              "/images/knit/event-kit/3.jpg",
+              "/images/knit/event-kit/4.jpg",
+              "/images/knit/event-kit/5.jpg",
+              "/images/knit/event-kit/6.jpg",
+            ],
+          },
+          {
+            id: "knit-place",
+            title: "Knit Place",
+            paragraphs: [
+              "Knit Place is where groups discover and manage their go-to spots. From saved locations and routes to place-specific details, it gives the group a shared spatial memory — so finding where to go next time is never a debate.",
+            ],
+            image: "/images/knit/knit-place/hero.png",
+          },
+        ],
       },
     ],
   },

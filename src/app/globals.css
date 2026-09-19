@@ -141,3 +141,11 @@ html[data-transitioning] *::after {
     display: none;
   }
 }
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
