@@ -210,7 +210,7 @@ export const projects: Project[] = [
   {
     slug: "knit",
     title: "Knit",
-    description: "A Core Banking Application for the African Companies",
+    description: "Core Banking Application for the African Companies and Market.",
     tocItems: [
       { id: "context", label: "Context" },
       { id: "problem", label: "Problem" },
@@ -335,9 +335,54 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "chaincore-3",
-    title: "ChainCore",
-    description: "Product Designer X Design Engineer",
+    slug: "timein-plus",
+    title: "Timein Plus",
+    description: "All in one Human Resource Management Platform.",
+    tocItems: [
+      { id: "context", label: "Context" },
+    ],
+    sections: [
+      {
+        id: "context",
+        title: "Context",
+        paragraphs: ["Coming soon."],
+      },
+    ],
+  },
+  {
+    slug: "turbo",
+    title: "Turbo",
+    description: "The Fastest Way to receive money and pay for bills",
+    tocItems: [
+      { id: "context", label: "Context" },
+    ],
+    sections: [
+      {
+        id: "context",
+        title: "Context",
+        paragraphs: ["Coming soon."],
+      },
+    ],
+  },
+  {
+    slug: "footballbooth",
+    title: "FootballBooth",
+    description: "Fostering Community and Connection via Football.",
+    tocItems: [
+      { id: "context", label: "Context" },
+    ],
+    sections: [
+      {
+        id: "context",
+        title: "Context",
+        paragraphs: ["Coming soon."],
+      },
+    ],
+  },
+  {
+    slug: "wiremoney",
+    title: "Wiremoney",
+    description: "Expanding Wiremoney into over 13 New International Markets and Territories",
     tocItems: [
       { id: "context", label: "Context" },
     ],

@@ -10,6 +10,7 @@ interface ProjectCardProps {
   slug: string;
   thumbnail?: string;
   video?: string;
+  tags?: string[];
 }
 
 export function ProjectCard({
@@ -18,6 +19,7 @@ export function ProjectCard({
   slug,
   thumbnail,
   video,
+  tags,
 }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -81,8 +83,16 @@ export function ProjectCard({
         </span>
       </div>
       <div className="flex flex-col gap-1">
-        <h3 className="text-sm md:text-base font-normal text-text-soft">{title}</h3>
-        <p className="text-base md:text-lg font-normal text-black">{description}</p>
+        <div className="flex items-center gap-1.5 text-sm font-normal text-text-soft">
+          <span>{title}</span>
+          {tags?.map((tag, i) => (
+            <span key={i} className="flex items-center gap-1.5">
+              <span className="w-1 h-1 rounded-full bg-text-soft inline-block" />
+              <span>{tag}</span>
+            </span>
+          ))}
+        </div>
+        <p className="text-sm md:text-base font-normal text-black leading-snug">{description}</p>
       </div>
     </Link>
   );

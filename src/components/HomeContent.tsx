@@ -9,25 +9,57 @@ const projects = [
     title: "ChainCore",
     description: "Core Banking Application for the African Companies and Market.",
     slug: "chaincore",
-    video: "/videos/chaincore.mp4",
+    thumbnail: "/images/chaincore/hero.jpg",
+    tags: ["SAAS", "Fintech"],
   },
   {
     title: "Knit",
-    description: "A Core Banking Application for the African Companies",
+    description: "Core Banking Application for the African Companies and Market.",
     slug: "knit",
-    video: "/videos/knit.mp4",
+    thumbnail: "/images/knit/hero.jpg",
+    tags: ["AI", "Social Networking"],
   },
   {
     title: "Reeple",
-    description: "Remittances & Payments for Nigerians and African Freelancers",
+    description: "Transforming Remittances & Payments for Nigerians and African Freelancers",
     slug: "reeple",
-    video: "/videos/reeple.mp4",
+    thumbnail: "/images/reeple/card.jpg",
+    tags: ["Fintech"],
   },
   {
-    title: "DevFest 2025 Ticketing Platform",
-    description: "Helping receive payments",
-    slug: "devfest-2025",
-    video: "/videos/devfest-lagos.mp4",
+    title: "Yaraa",
+    description: "Revolutionising the Enterprise Resource Management Industry.",
+    slug: "yaraa",
+    thumbnail: "/images/yaraa/hero.jpg",
+    tags: ["AI", "SAAS", "ERP System"],
+  },
+  {
+    title: "Timein Plus",
+    description: "All in one Human Resource Management Platform.",
+    slug: "timein-plus",
+    thumbnail: "/images/timein-plus/hero.jpg",
+    tags: ["HRM", "SAAS"],
+  },
+  {
+    title: "Turbo",
+    description: "The Fastest Way to receive money and pay for bills",
+    slug: "turbo",
+    thumbnail: "/images/turbo/hero.jpg",
+    tags: ["AI", "SAAS", "ERP System"],
+  },
+  {
+    title: "FootballBooth",
+    description: "Fostering Community and Connection via Football.",
+    slug: "footballbooth",
+    thumbnail: "/images/footballbooth/hero.jpg",
+    tags: ["AI", "SAAS", "ERP System"],
+  },
+  {
+    title: "Wiremoney",
+    description: "Expanding Wiremoney into over 13 New International Markets and Territories",
+    slug: "wiremoney",
+    thumbnail: "/images/wiremoney/hero.jpg",
+    tags: ["AI", "Social Networking"],
   },
 ];
 
@@ -35,131 +67,67 @@ export function HomeContent() {
   const ready = useAppReady();
 
   return (
-    <main className="w-full max-w-[800px] mx-auto px-5 md:px-6 pt-20 md:pt-28 pb-28 md:pb-32">
+    <main className="w-full px-5 md:px-6 pt-20 md:pt-28 pb-28 md:pb-32">
       {/* Header */}
       <CascadeReveal delay={0} ready={ready}>
-        <header className="flex flex-col gap-1">
-          <div className="flex items-center justify-between">
-            <h1 className="text-lg md:text-xl font-normal text-black font-sans">
-              Temitope Aiyegbusi
-            </h1>
-            <div className="hidden md:flex items-center gap-3">
+        <header className="max-w-[550px] mx-auto flex flex-col gap-1">
+          <div className="flex items-center gap-4 mb-5">
+            {[
+              { href: "https://dribbble.com/ttaiyegbusi", label: "Dribbble", icon: <DribbbleIcon /> },
+              { href: "https://www.linkedin.com/in/ttaiyegbusi/", label: "LinkedIn", icon: <LinkedInIcon /> },
+              { href: "https://github.com/ttaiyegbusi", label: "GitHub", icon: <GitHubIcon /> },
+            ].map((link, i) => (
               <a
-                href="https://dribbble.com/ttaiyegbusi"
+                key={link.label}
+                href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Dribbble"
-                className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
+                aria-label={link.label}
+                className="social-icon-appear inline-flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
+                style={{ animationDelay: `${i * 120}ms` }}
               >
-                <DribbbleIcon />
+                {link.icon}
               </a>
-              <a
-                href="https://www.linkedin.com/in/ttaiyegbusi/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
-              >
-                <LinkedInIcon />
-              </a>
-              <a
-                href="https://github.com/ttaiyegbusi"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
-              >
-                <GitHubIcon />
-              </a>
-              <a
-                href="https://layers.to/tta"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Layers"
-                className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
-              >
-                <LayersIcon />
-              </a>
-            </div>
+            ))}
           </div>
+          <h1 className="text-lg md:text-xl font-normal text-black font-sans">
+            Temitope Aiyegbusi
+          </h1>
           <p className="text-sm md:text-base font-normal text-text-soft font-sans">
             Product Designer X Design Engineer
           </p>
-          <div className="flex md:hidden items-center gap-3 mt-3">
-            <a
-              href="https://dribbble.com/ttaiyegbusi"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Dribbble"
-              className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
-            >
-              <DribbbleIcon />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/ttaiyegbusi/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
-            >
-              <LinkedInIcon />
-            </a>
-            <a
-              href="https://github.com/ttaiyegbusi"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
-            >
-              <GitHubIcon />
-            </a>
-            <a
-              href="https://layers.to/tta"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Layers"
-              className="opacity-80 hover:opacity-100 transition-opacity [&_svg]:w-5 [&_svg]:h-5"
-            >
-              <LayersIcon />
-            </a>
-          </div>
         </header>
       </CascadeReveal>
 
       {/* Hero */}
       <CascadeReveal delay={120} ready={ready}>
-        <section className="mt-[30px] flex flex-col gap-5">
+        <section className="max-w-[550px] mx-auto mt-[30px] flex flex-col gap-5">
           <p className="text-base font-normal font-sans">
             <span className="text-text-soft">Hello</span>
             <span className="text-black">, I am Temitope Aiyegbusi 🇳🇬.</span>
           </p>
           <p className="text-base font-normal text-text-sub leading-normal">
             I&apos;m passionate about transforming ideas into clean, functional,
-            and visually captivating products—this portfolio is proof of that.
+            and visually captivating products.
           </p>
           <p className="text-base font-normal text-text-sub leading-normal">
-            With a strong commitment to design excellence and intentionality, I
-            believe every pixel, line, and interaction should serve a purpose. Over
-            the years, I&apos;ve had the privilege of designing solutions across
-            diverse industries like Fintech, PropertyTech, Sports, Supply Chain,
-            and more.
+            Over the years, I&apos;ve had the privilege of designing solutions
+            across diverse industries like Fintech, PropertyTech, Sports, Supply
+            Chain, and more.
           </p>
         </section>
       </CascadeReveal>
 
       {/* Work */}
       <CascadeReveal delay={240} ready={ready}>
-        <section className="mt-16 flex flex-col gap-5">
-          <h2 className="text-base font-normal text-text-strong">My Work</h2>
-          <div className="flex flex-col gap-10">
-            {chunkArray(projects, 2).map((row, rowIndex) => (
-              <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {row.map((project) => (
-                  <ProjectCard key={project.slug} {...project} />
-                ))}
-              </div>
-            ))}
-          </div>
+        <section className="max-w-[700px] mx-auto mt-16 flex flex-col gap-10">
+          {chunkArray(projects, 2).map((row, rowIndex) => (
+            <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {row.map((project) => (
+                <ProjectCard key={project.slug} {...project} />
+              ))}
+            </div>
+          ))}
         </section>
       </CascadeReveal>
     </main>
@@ -194,16 +162,6 @@ function GitHubIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
       <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-    </svg>
-  );
-}
-
-function LayersIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2L1 7.5L12 13L23 7.5L12 2Z" />
-      <path d="M1 12L12 17.5L23 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M1 16.5L12 22L23 16.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
