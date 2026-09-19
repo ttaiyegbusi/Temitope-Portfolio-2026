@@ -166,18 +166,23 @@ export default async function CaseStudyPage({
                     {sub.images && sub.images.length > 0 && (
                       <DragScroll className="flex gap-5 overflow-x-auto pb-4 -mr-5 md:-mr-6 pr-5 md:pr-6">
                         {sub.images.map((img, i) => (
-                          <ImageLightbox key={i} src={img} alt={`${sub.title} ${i + 1}`} images={sub.images} startIndex={i}>
-                            <div className="shrink-0 w-[80vw] md:w-[460px] overflow-hidden rounded-lg">
-                              <Image
-                                src={img}
-                                alt={`${sub.title} ${i + 1}`}
-                                width={1400}
-                                height={1000}
-                                quality={95}
-                                className="w-full h-auto pointer-events-none"
-                              />
-                            </div>
-                          </ImageLightbox>
+                          <div key={i} className="shrink-0 flex flex-col gap-2">
+                            <ImageLightbox src={img} alt={`${sub.title} ${i + 1}`} images={sub.images} startIndex={i}>
+                              <div className="w-[80vw] md:w-[460px] overflow-hidden rounded-lg">
+                                <Image
+                                  src={img}
+                                  alt={`${sub.title} ${i + 1}`}
+                                  width={1400}
+                                  height={1000}
+                                  quality={95}
+                                  className="w-full h-auto pointer-events-none"
+                                />
+                              </div>
+                            </ImageLightbox>
+                            {sub.captions && sub.captions[i] && (
+                              <p className="text-sm text-text-sub text-center">{sub.captions[i]}</p>
+                            )}
+                          </div>
                         ))}
                       </DragScroll>
                     )}
