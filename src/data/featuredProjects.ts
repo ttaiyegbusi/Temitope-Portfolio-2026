@@ -49,12 +49,12 @@ export const featuredProjects: FeaturedProject[] = [
     tags: ["HRM", "SAAS"],
   },
   {
-    title: "Turbo",
+    title: "TurboPay",
     description: "Designing a mobile-first fintech experience that makes receiving money and paying bills instant across Nigeria",
     slug: "turbo",
     thumbnail: "/images/turbo/home-web.jpg",
     mobileThumbnail: "/images/turbo/home-web.jpg",
-    tags: ["AI", "SAAS", "ERP System"],
+    tags: ["Fintech", "Payments"],
   },
   {
     title: "FootballBooth",
