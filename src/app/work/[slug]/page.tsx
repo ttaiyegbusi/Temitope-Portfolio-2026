@@ -5,7 +5,7 @@ import { projects, getProject } from "@/data/projects";
 import { CaseStudySidebar } from "@/components/CaseStudySidebar";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { MobileScrollbar } from "@/components/MobileScrollbar";
-import { DragScroll } from "@/components/DragScroll";
+import { ImageGallery } from "@/components/ImageGallery";
 import { ImageLightbox } from "@/components/ImageLightbox";
 import { ReadingProgress } from "@/components/ReadingProgress";
 
@@ -28,7 +28,7 @@ export default async function CaseStudyPage({
     <main className="w-full max-w-[960px] mx-auto px-5 md:px-6 pb-28 md:pb-32">
       {/* Sticky top bar */}
       <div className="sticky top-0 z-40 mb-4">
-        <div className="bg-bg pt-10 md:pt-14 pb-4">
+        <div className="bg-bg pt-10 md:pt-14 pb-4 -mr-5 md:-mr-6 pr-5 md:pr-6">
           <div className="flex gap-4 md:gap-[60px] items-center">
             <div className="md:w-[200px] shrink-0">
               <Link
@@ -54,9 +54,9 @@ export default async function CaseStudyPage({
         </div>
         <div className="h-6 hidden md:flex gap-[60px]">
           <div className="w-[200px] shrink-0" />
-          <div className="flex-1 bg-gradient-to-b from-bg to-transparent" />
+          <div className="flex-1 -mr-5 md:-mr-6 bg-gradient-to-b from-bg to-transparent" />
         </div>
-        <div className="h-4 md:hidden bg-gradient-to-b from-bg to-transparent" />
+        <div className="h-4 md:hidden -mr-5 bg-gradient-to-b from-bg to-transparent" />
       </div>
 
       {/* Two-column layout */}
@@ -208,30 +208,7 @@ export default async function CaseStudyPage({
                       </ImageLightbox>
                     )}
                     {sub.images && sub.images.length > 0 && (
-                      <div className="relative -mr-5 md:-mr-6">
-                        <DragScroll className="flex gap-5 overflow-x-auto pb-4 pr-5 md:pr-6">
-                          {sub.images.map((img, i) => (
-                            <div key={i} className="shrink-0 flex flex-col gap-2">
-                              <ImageLightbox src={img} alt={`${sub.title} ${i + 1}`} images={sub.images} startIndex={i}>
-                                <div className="w-[80vw] md:w-[460px] overflow-hidden rounded-lg">
-                                  <Image
-                                    src={img}
-                                    alt={`${sub.title} ${i + 1}`}
-                                    width={1400}
-                                    height={1000}
-                                    quality={95}
-                                    className="w-full h-auto pointer-events-none"
-                                  />
-                                </div>
-                              </ImageLightbox>
-                              {sub.captions && sub.captions[i] && (
-                                <p className="text-sm text-text-sub text-center leading-[24px] tracking-[0.01em]">{sub.captions[i]}</p>
-                              )}
-                            </div>
-                          ))}
-                        </DragScroll>
-                        <div className="absolute top-0 right-0 bottom-4 w-16 md:w-24 pointer-events-none bg-[linear-gradient(to_left,var(--color-bg)_0%,transparent_100%)]" />
-                      </div>
+                      <ImageGallery images={sub.images} captions={sub.captions} title={sub.title} />
                     )}
                     {sub.image === true && !sub.video && (
                       <div className="bg-bg-white h-[200px] md:h-[350px] w-full rounded-lg" />

@@ -75,7 +75,7 @@ export default function AboutPage() {
             I&apos;m a <span className="text-black">Product Designer</span> and{" "}
             <span className="text-black">Design Engineer</span> based in Nigeria
             🇳🇬, building{" "}
-            <Link href="/work" className="italic underline underline-offset-2 text-black hover:text-text-sub transition-colors">
+            <Link href="/work" className="text-black hover:text-text-sub transition-colors">
               beautiful software
             </Link>{" "}
             that people love to use. I turn ideas into clean, functional, and
@@ -93,19 +93,19 @@ export default function AboutPage() {
           <p className="text-base font-normal text-text-sub leading-relaxed">
             Always open to interesting conversations about design, startups, and
             building things.{" "}
-            <Link href="/contact" className="italic underline underline-offset-2 text-black hover:text-text-sub transition-colors">
+            <Link href="/contact" className="text-black hover:text-text-sub transition-colors">
               Say hello
             </Link>{" "}
             or find me on{" "}
-            <a href="https://dribbble.com/ttaiyegbusi" target="_blank" rel="noopener noreferrer" className="italic underline underline-offset-2 text-black hover:text-text-sub transition-colors">
+            <a href="https://dribbble.com/ttaiyegbusi" target="_blank" rel="noopener noreferrer" className="text-black hover:text-text-sub transition-colors">
               Dribbble
             </a>
             ,{" "}
-            <a href="https://www.linkedin.com/in/ttaiyegbusi/" target="_blank" rel="noopener noreferrer" className="italic underline underline-offset-2 text-black hover:text-text-sub transition-colors">
+            <a href="https://www.linkedin.com/in/ttaiyegbusi/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-text-sub transition-colors">
               LinkedIn
             </a>
             , or{" "}
-            <a href="https://github.com/ttaiyegbusi" target="_blank" rel="noopener noreferrer" className="italic underline underline-offset-2 text-black hover:text-text-sub transition-colors">
+            <a href="https://github.com/ttaiyegbusi" target="_blank" rel="noopener noreferrer" className="text-black hover:text-text-sub transition-colors">
               GitHub
             </a>
             .
@@ -123,13 +123,6 @@ export default function AboutPage() {
             {work.map((item) => {
               const content = (
                 <>
-                  <span
-                    className="flex items-center justify-center w-6 h-6 rounded-md text-white text-xs font-semibold shrink-0"
-                    style={{ backgroundColor: item.color }}
-                    aria-hidden
-                  >
-                    {item.company.charAt(0)}
-                  </span>
                   <span className="text-sm md:text-base font-normal text-black shrink-0">
                     {item.company}
                   </span>
