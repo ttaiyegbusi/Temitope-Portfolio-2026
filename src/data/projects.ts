@@ -1420,3 +1420,23 @@ export const projects: Project[] = [
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
 }
+
+// A project counts as a full case study once it has real content beyond the
+// single "Coming soon." placeholder section.
+export function isPublishedCaseStudy(p: Project): boolean {
+  return !(
+    p.sections.length === 1 &&
+    p.sections[0].paragraphs.length === 1 &&
+    p.sections[0].paragraphs[0] === "Coming soon."
+  );
+}
+
+// The next published case study after `slug`, wrapping around. Only cycles
+// through complete case studies so the CTA never lands on a placeholder.
+export function getNextCaseStudy(slug: string): Project | undefined {
+  const published = projects.filter(isPublishedCaseStudy);
+  if (published.length < 2) return undefined;
+  const idx = published.findIndex((p) => p.slug === slug);
+  if (idx === -1) return undefined;
+  return published[(idx + 1) % published.length];
+}

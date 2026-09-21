@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { projects, getProject } from "@/data/projects";
+import { projects, getProject, getNextCaseStudy } from "@/data/projects";
 import { CaseStudySidebar } from "@/components/CaseStudySidebar";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { MobileScrollbar } from "@/components/MobileScrollbar";
@@ -21,6 +21,8 @@ export default async function CaseStudyPage({
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) notFound();
+
+  const nextProject = getNextCaseStudy(slug);
 
   return (
     <div data-page-transition className="page-transition-enter">
@@ -218,6 +220,31 @@ export default async function CaseStudyPage({
               </section>
             ))}
           </div>
+
+          {/* Next case study CTA */}
+          {nextProject && (
+            <Link
+              href={`/work/${nextProject.slug}`}
+              className="group mt-16 flex flex-col gap-2.5 border-t border-stroke-soft pt-8"
+            >
+              <span className="text-sm font-normal text-text-soft">Next case study</span>
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center gap-1.5 text-sm font-normal text-text-soft">
+                  <span>{nextProject.title}</span>
+                  {nextProject.tags?.map((tag) => (
+                    <span key={tag} className="flex items-center gap-1.5">
+                      <span className="w-1 h-1 rounded-full bg-text-soft inline-block" />
+                      <span>{tag}</span>
+                    </span>
+                  ))}
+                </div>
+                <p className="flex items-center gap-2 text-sm md:text-base font-normal text-black leading-snug">
+                  <span>{nextProject.description}</span>
+                  <ArrowRightIcon />
+                </p>
+              </div>
+            </Link>
+          )}
         </div>
       </div>
     </main>
@@ -239,6 +266,25 @@ function ArrowLeftIcon() {
       className="text-text-soft"
     >
       <path d="m15 18-6-6 6-6" />
+    </svg>
+  );
+}
+
+function ArrowRightIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="shrink-0 text-text-soft transition-transform duration-300 group-hover:translate-x-1"
+    >
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
     </svg>
   );
 }
