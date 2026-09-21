@@ -122,7 +122,7 @@ export function ImageGallery({ images, captions, title }: ImageGalleryProps) {
               </div>
             </ImageLightbox>
             {captions && captions[i] && (
-              <p className="text-sm text-text-sub text-center leading-[24px] tracking-[0.01em]">
+              <p className="w-[75vw] md:w-[460px] text-sm text-text-sub text-center leading-[24px] tracking-[0.01em]">
                 {captions[i]}
               </p>
             )}
