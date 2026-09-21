@@ -3,73 +3,7 @@
 import { ProjectCard } from "@/components/ProjectCard";
 import { CascadeReveal } from "@/components/CascadeReveal";
 import { useAppReady } from "@/components/AppShell";
-
-const projects = [
-  {
-    title: "ChainCore",
-    description: "Building Africa's first native core banking platform for 50+ financial institutions across Nigeria and the continent",
-    slug: "chaincore",
-    thumbnail: "/images/chaincore/hero.jpg",
-    mobileThumbnail: "/images/chaincore/mobile.png",
-    tags: ["SAAS", "Fintech"],
-  },
-  {
-    title: "Knit",
-    description: "Designing a social coordination app that helps friend groups plan, vote and show up to real-life events",
-    slug: "knit",
-    thumbnail: "/images/knit/hero.jpg",
-    mobileThumbnail: "/images/knit/mobile.png",
-    tags: ["AI", "Social Networking"],
-  },
-  {
-    title: "Reeple",
-    description: "Powering $1M+ in remittances for 5,000+ users and helping African freelancers get paid faster across borders",
-    slug: "reeple",
-    thumbnail: "/images/reeple/card.jpg",
-    mobileThumbnail: "/images/reeple/mobile.png",
-    tags: ["Fintech"],
-  },
-  {
-    title: "Yaraa",
-    description: "Rethinking enterprise procurement and resource planning for mid-market companies across multiple industries",
-    slug: "yaraa",
-    thumbnail: "/images/yaraa/hero.jpg",
-    mobileThumbnail: "/images/yaraa/mobile.png",
-    tags: ["AI", "SAAS", "ERP System"],
-  },
-  {
-    title: "Timein Plus",
-    description: "Streamlining HR operations, payroll and employee management for growing teams and organisations",
-    slug: "timein-plus",
-    thumbnail: "/images/timein-plus/hero.jpg",
-    mobileThumbnail: "/images/timein-plus/mobile.png",
-    tags: ["HRM", "SAAS"],
-  },
-  {
-    title: "Turbo",
-    description: "Designing a mobile-first fintech experience that makes receiving money and paying bills instant across Nigeria",
-    slug: "turbo",
-    thumbnail: "/images/turbo/hero.jpg",
-    mobileThumbnail: "/images/turbo/mobile.png",
-    tags: ["AI", "SAAS", "ERP System"],
-  },
-  {
-    title: "FootballBooth",
-    description: "Building a social platform that connects football fans through communities, live discussions and trending content",
-    slug: "footballbooth",
-    thumbnail: "/images/footballbooth/hero.jpg",
-    mobileThumbnail: "/images/footballbooth/mobile.png",
-    tags: ["AI", "SAAS", "ERP System"],
-  },
-  {
-    title: "Wiremoney",
-    description: "Scaling a cross-border payments platform from a single market into 13+ new international markets and territories",
-    slug: "wiremoney",
-    thumbnail: "/images/wiremoney/hero.jpg",
-    mobileThumbnail: "/images/wiremoney/mobile.png",
-    tags: ["Fintech", "Payments"],
-  },
-];
+import { featuredProjects as projects } from "@/data/featuredProjects";
 
 export function HomeContent() {
   const ready = useAppReady();

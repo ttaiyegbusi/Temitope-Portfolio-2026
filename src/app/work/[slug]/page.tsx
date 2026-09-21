@@ -7,6 +7,7 @@ import { VideoPlayer } from "@/components/VideoPlayer";
 import { MobileScrollbar } from "@/components/MobileScrollbar";
 import { DragScroll } from "@/components/DragScroll";
 import { ImageLightbox } from "@/components/ImageLightbox";
+import { ReadingProgress } from "@/components/ReadingProgress";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -32,20 +33,23 @@ export default async function CaseStudyPage({
             <div className="md:w-[200px] shrink-0">
               <Link
                 href="/"
-                className="inline-flex items-center gap-1 bg-bg-white rounded-lg px-2.5 py-2 hover:bg-stroke-soft/50 transition-colors"
+                className="inline-flex items-center gap-1 h-[30px] px-2 bg-bg-white rounded-lg hover:bg-stroke-soft/50 transition-colors"
               >
                 <ArrowLeftIcon />
-                <span className="text-base text-text-soft">Back</span>
+                <span className="text-sm text-text-soft">Back</span>
               </Link>
             </div>
 
-            <nav className="flex items-center gap-1 text-sm md:text-base">
-              <Link href="/" className="text-text-soft hover:text-text-sub transition-colors">
-                Home
-              </Link>
-              <span className="text-text-soft">/</span>
-              <span className="text-text-strong font-normal">{project.title}</span>
-            </nav>
+            <div className="flex items-center min-w-0">
+              <ReadingProgress />
+              <nav className="flex items-center gap-1 text-sm md:text-base">
+                <Link href="/" className="text-text-soft hover:text-text-sub transition-colors">
+                  Home
+                </Link>
+                <span className="text-text-soft">/</span>
+                <span className="text-text-strong font-normal">{project.title}</span>
+              </nav>
+            </div>
           </div>
         </div>
         <div className="h-6 hidden md:flex gap-[60px]">
@@ -63,51 +67,58 @@ export default async function CaseStudyPage({
         </div>
 
         {/* Content */}
-        <div className="flex-1 min-w-0 flex flex-col gap-5">
+        <div data-case-content className="flex-1 min-w-0 flex flex-col gap-5">
           {/* Tagline — leads the page */}
           <div className="flex flex-col gap-3">
             <p className="max-w-[600px] text-lg font-normal text-black leading-[28px]">
               {project.description}
             </p>
-            {project.tags && project.tags.length > 0 && (
+            {((project.tags && project.tags.length > 0) || project.website) && (
               <div className="flex flex-wrap items-center gap-1.5 text-sm font-normal text-text-soft">
-                <span>{project.title}</span>
-                {project.tags.map((tag) => (
-                  <span key={tag} className="flex items-center gap-1.5">
-                    <span className="w-1 h-1 rounded-full bg-text-soft inline-block" />
-                    <span>{tag}</span>
-                  </span>
-                ))}
+                {project.tags && project.tags.length > 0 && (
+                  <>
+                    <span>{project.title}</span>
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="flex items-center gap-1.5">
+                        <span className="w-1 h-1 rounded-full bg-text-soft inline-block" />
+                        <span>{tag}</span>
+                      </span>
+                    ))}
+                  </>
+                )}
+                {project.website && (
+                  <a
+                    href={project.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700 hover:underline transition-colors"
+                  >
+                    {project.tags && project.tags.length > 0 && (
+                      <span className="w-1 h-1 rounded-full bg-text-soft inline-block mr-1" />
+                    )}
+                    Visit Website
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M7 17 17 7" />
+                      <path d="M7 7h10v10" />
+                    </svg>
+                  </a>
+                )}
               </div>
-            )}
-            {project.website && (
-              <a
-                href={project.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 w-fit text-base text-blue-600 hover:text-blue-700 hover:underline transition-colors"
-              >
-                Visit Website
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M7 17 17 7" />
-                  <path d="M7 7h10v10" />
-                </svg>
-              </a>
             )}
           </div>
 
           {/* Hero image */}
           {project.thumbnail ? (
-            <div className="w-full rounded-lg overflow-hidden">
+            <div data-case-hero className="w-full rounded-lg overflow-hidden">
               <Image
                 src={project.thumbnail}
                 alt={project.title}
@@ -117,7 +128,7 @@ export default async function CaseStudyPage({
               />
             </div>
           ) : (
-            <div className="bg-bg-white h-[220px] md:h-[400px] w-full rounded-lg" />
+            <div data-case-hero className="bg-bg-white h-[220px] md:h-[400px] w-full rounded-lg" />
           )}
 
           {/* Sections */}
@@ -219,7 +230,7 @@ export default async function CaseStudyPage({
                             </div>
                           ))}
                         </DragScroll>
-                        <div className="absolute top-0 right-0 bottom-4 w-full pointer-events-none bg-[linear-gradient(to_left,var(--color-bg)_0%,var(--color-bg)_8%,transparent_45%)]" />
+                        <div className="absolute top-0 right-0 bottom-4 w-16 md:w-24 pointer-events-none bg-[linear-gradient(to_left,var(--color-bg)_0%,transparent_100%)]" />
                       </div>
                     )}
                     {sub.image === true && !sub.video && (
@@ -240,8 +251,8 @@ export default async function CaseStudyPage({
 function ArrowLeftIcon() {
   return (
     <svg
-      width="20"
-      height="20"
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
