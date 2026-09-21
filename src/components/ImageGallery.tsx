@@ -19,8 +19,6 @@ export function ImageGallery({ images, captions, title }: ImageGalleryProps) {
   const startX = useRef(0);
   const startScroll = useRef(0);
   const hasMoved = useRef(false);
-  // Suppresses the nudge / interaction hints once the user takes over.
-  const interacted = useRef(false);
 
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
     const el = scrollerRef.current;
@@ -45,7 +43,6 @@ export function ImageGallery({ images, captions, title }: ImageGalleryProps) {
     const walk = (x - startX.current) * 1.5;
     if (Math.abs(x - startX.current) > 5) {
       hasMoved.current = true;
-      interacted.current = true;
     }
     el.scrollLeft = startScroll.current - walk;
   }, []);
@@ -79,7 +76,6 @@ export function ImageGallery({ images, captions, title }: ImageGalleryProps) {
       setActive(closest);
     };
     const onScroll = () => {
-      interacted.current = true;
       if (!raf) raf = requestAnimationFrame(update);
     };
     update();
@@ -90,37 +86,9 @@ export function ImageGallery({ images, captions, title }: ImageGalleryProps) {
     };
   }, []);
 
-  // --- One-time "nudge" hint when scrolled into view ---
-  useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el || images.length < 2) return;
-    if (typeof window !== "undefined" &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    let done = false;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting || done || interacted.current) return;
-          done = true;
-          observer.disconnect();
-          // Peek forward, then settle back to hint that the row scrolls.
-          el.scrollTo({ left: 44, behavior: "smooth" });
-          window.setTimeout(() => {
-            if (!interacted.current) el.scrollTo({ left: 0, behavior: "smooth" });
-          }, 600);
-        });
-      },
-      { threshold: 0.6 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [images.length]);
-
   const scrollToIndex = useCallback((i: number) => {
     const el = scrollerRef.current;
     if (!el) return;
-    interacted.current = true;
     const item = el.querySelectorAll<HTMLElement>("[data-slide]")[i];
     if (item) {
       el.scrollTo({ left: item.offsetLeft, behavior: "smooth" });

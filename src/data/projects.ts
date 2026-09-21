@@ -46,6 +46,7 @@ export const projects: Project[] = [
       { id: "trail-balance", label: "Trail Balance", level: 2 },
       { id: "journal-entries", label: "Journal Entries", level: 2 },
       { id: "general-ledger", label: "General Ledger", level: 2 },
+      { id: "create-manual-journal", label: "Create Manual Journal", level: 2 },
       { id: "provisional-report", label: "Provisional Report", level: 2 },
       { id: "clients", label: "Clients", level: 1 },
       { id: "view-client", label: "View Client", level: 2 },
@@ -54,6 +55,17 @@ export const projects: Project[] = [
       { id: "create-center", label: "Create Center", level: 2 },
       { id: "transactions", label: "Transactions", level: 1 },
       { id: "administration", label: "Administration", level: 1 },
+      { id: "users", label: "Users", level: 2 },
+      { id: "user-group", label: "User Group", level: 2 },
+      { id: "create-user-group", label: "Create User Group", level: 2 },
+      { id: "password-policy", label: "Password Policy", level: 2 },
+      { id: "user-login-report", label: "User Login Report", level: 2 },
+      { id: "products", label: "Products", level: 2 },
+      { id: "create-loan-products", label: "Create Loan Products", level: 2 },
+      { id: "interest-conversion", label: "Interest Conversion", level: 2 },
+      { id: "org-structure", label: "Org Structure", level: 2 },
+      { id: "general-settings", label: "General Settings", level: 2 },
+      { id: "payment-method", label: "Payment Method", level: 2 },
     ],
     sections: [
       {
@@ -144,7 +156,16 @@ export const projects: Project[] = [
             paragraphs: [
               "Journal entries allowed accountants to record transactions directly into the ledger with full control over accounts, amounts, and descriptions.",
             ],
-            image: true,
+            images: [
+              "/images/chaincore/journal-entries/1.jpg",
+              "/images/chaincore/journal-entries/2.jpg",
+              "/images/chaincore/journal-entries/3.jpg",
+            ],
+            captions: [
+              "Empty state when no journal entry has been recorded yet",
+              "Browse all journal entries with amount, category, and status",
+              "Expand a row to see the full debit and credit breakdown",
+            ],
           },
           {
             id: "general-ledger",
@@ -152,7 +173,33 @@ export const projects: Project[] = [
             paragraphs: [
               "The general ledger served as the central record of all financial transactions, giving accountants a complete and auditable trail of every movement.",
             ],
-            image: true,
+            images: [
+              "/images/chaincore/general-ledger/1.jpg",
+              "/images/chaincore/general-ledger/2.jpg",
+              "/images/chaincore/general-ledger/3.jpg",
+            ],
+            captions: [
+              "Empty state prompting you to filter for a ledger report",
+              "Expand an entry to see its running balance and notes",
+              "The general ledger with debit, credit, and balance per entry",
+            ],
+          },
+          {
+            id: "create-manual-journal",
+            title: "Create Manual Journal",
+            paragraphs: [
+              "Manual journal entries let accountants record transactions directly, with full control over the accounts, amounts, and descriptions on each line.",
+            ],
+            images: [
+              "/images/chaincore/create-manual-journal/1.jpg",
+              "/images/chaincore/create-manual-journal/2.jpg",
+              "/images/chaincore/create-manual-journal/3.jpg",
+            ],
+            captions: [
+              "Start from Journal Entries and tap Manual Journal",
+              "Add debit and credit lines, set the level transfer and date",
+              "New manual journal created and posted to the ledger",
+            ],
           },
           {
             id: "provisional-report",
@@ -160,7 +207,14 @@ export const projects: Project[] = [
             paragraphs: [
               "Provisional reports gave institutions the ability to generate draft financial statements for review before final submission.",
             ],
-            image: true,
+            images: [
+              "/images/chaincore/provisional-report/1.jpg",
+              "/images/chaincore/provisional-report/2.jpg",
+            ],
+            captions: [
+              "Empty state prompting you to filter for a provisional report",
+              "Provisioning by mark type, days in arrears, and percentage",
+            ],
           },
           {
             id: "clients",
@@ -205,9 +259,206 @@ export const projects: Project[] = [
             id: "transactions",
             title: "Transactions",
             paragraphs: [
-              "Chain of Account: When development of ChainCore began, the team and I spoke with a number of people to gather perspective, starting with the accountants, who were the primary users of the platform.",
+              "Transactions give a full view of money moving across the platform. Track value and volume at a glance, filter by status, and drill into any single transaction.",
             ],
-            image: true,
+            images: [
+              "/images/chaincore/transactions/1.jpg",
+              "/images/chaincore/transactions/2.jpg",
+              "/images/chaincore/transactions/3.jpg",
+            ],
+            captions: [
+              "Empty state with the overview cards and a prompt to start",
+              "All transactions with status, amount, and quick stats up top",
+              "Filter transactions by type, method, date, user, and more",
+            ],
+          },
+          {
+            id: "administration",
+            title: "Administration",
+            paragraphs: [
+              "The administration area is where access is governed. Manage users and their groups, define granular permissions, set the password policy, and audit every login.",
+            ],
+          },
+          {
+            id: "users",
+            title: "Users",
+            paragraphs: [
+              "The users module is where administrators manage everyone with access to the platform, from onboarding to termination.",
+            ],
+            images: [
+              "/images/chaincore/users/1.jpg",
+              "/images/chaincore/users/2.jpg",
+              "/images/chaincore/users/3.jpg",
+            ],
+            captions: [
+              "Empty state prompting you to add your first user",
+              "Manage users with their group, level, and access status",
+              "Filter users by level, status, and user group",
+            ],
+          },
+          {
+            id: "user-group",
+            title: "User Group",
+            paragraphs: [
+              "User groups bundle permissions into reusable roles. Each group defines what its members can see and do across the platform.",
+            ],
+            images: [
+              "/images/chaincore/user-group/1.jpg",
+            ],
+            captions: [
+              "Browse all user groups with assigned users and status",
+            ],
+          },
+          {
+            id: "create-user-group",
+            title: "Create User Group",
+            paragraphs: [
+              "Creating a user group is a guided flow across sixteen permission areas, letting admins define access down to the individual action.",
+            ],
+            images: [
+              "/images/chaincore/create-user-group/1.jpg",
+              "/images/chaincore/create-user-group/2.jpg",
+              "/images/chaincore/create-user-group/3.jpg",
+              "/images/chaincore/create-user-group/4.jpg",
+              "/images/chaincore/create-user-group/5.jpg",
+              "/images/chaincore/create-user-group/6.jpg",
+              "/images/chaincore/create-user-group/7.jpg",
+              "/images/chaincore/create-user-group/8.jpg",
+            ],
+            captions: [
+              "Start from User Groups and tap Create New User Group",
+              "Name the group and set its global module access",
+              "Configure granular loan account permissions",
+              "Set deposit account permissions and transfer limits",
+              "Grant administration and organisation permissions",
+              "Control person-level permissions and roles",
+              "Configure API support and key generation",
+              "New user group created successfully",
+            ],
+          },
+          {
+            id: "password-policy",
+            title: "Password Policy",
+            paragraphs: [
+              "The password policy centralises account security, from strength requirements and expiry to lockouts and session timeouts.",
+            ],
+            images: [
+              "/images/chaincore/password-policy/1.jpg",
+            ],
+            captions: [
+              "Set password strength, expiry, lockout, and session rules",
+            ],
+          },
+          {
+            id: "user-login-report",
+            title: "User Login Report",
+            paragraphs: [
+              "The user login report is a full audit trail of access, capturing every login, logout, and session with the user, time, and IP.",
+            ],
+            images: [
+              "/images/chaincore/user-login-report/1.jpg",
+              "/images/chaincore/user-login-report/2.jpg",
+            ],
+            captions: [
+              "Every login and logout event with time, location, and IP",
+              "Open a user to see their profile and full activity history",
+            ],
+          },
+          {
+            id: "products",
+            title: "Products",
+            paragraphs: [
+              "The products module is where loan and deposit offerings are defined. Browse every product, review its details, and spin up new ones for the institution.",
+            ],
+            images: [
+              "/images/chaincore/products/1.jpg",
+              "/images/chaincore/products/2.jpg",
+              "/images/chaincore/products/3.jpg",
+            ],
+            captions: [
+              "Empty state prompting you to create your first loan product",
+              "Switch between Administration modules from the menu",
+              "Browse all loan products with their ID, creator, and date",
+            ],
+          },
+          {
+            id: "create-loan-products",
+            title: "Create Loan Products",
+            paragraphs: [
+              "Creating a loan product is a guided, six-step flow covering everything from basic details to repayment, interest, penalties, and accounting.",
+            ],
+            images: [
+              "/images/chaincore/create-loan-products/1.jpg",
+              "/images/chaincore/create-loan-products/2.jpg",
+              "/images/chaincore/create-loan-products/3.jpg",
+              "/images/chaincore/create-loan-products/4.jpg",
+              "/images/chaincore/create-loan-products/5.jpg",
+              "/images/chaincore/create-loan-products/6.jpg",
+            ],
+            captions: [
+              "Basic information: name, group, validity, and availability",
+              "Repayment allocation and the number of instalments",
+              "Loan amount, interest rates, grace period, and early payment",
+              "Map accounting entries for interest, portfolio, and accruals",
+              "Enable refinancing and the loan workflow",
+              "New loan product created successfully",
+            ],
+          },
+          {
+            id: "interest-conversion",
+            title: "Interest Conversion",
+            paragraphs: [
+              "Interest conversion settings define how rates translate across periods, keeping annual, monthly, weekly, and daily calculations consistent.",
+            ],
+            images: [
+              "/images/chaincore/interest-conversion/1.jpg",
+            ],
+            captions: [
+              "Set how annual, monthly, and weekly rates convert to daily",
+            ],
+          },
+          {
+            id: "org-structure",
+            title: "Org Structure",
+            paragraphs: [
+              "The organisation structure module maps the institution's branches and centers, so operations can be grouped by location and clients moved between them.",
+            ],
+            images: [
+              "/images/chaincore/org-structure/1.jpg",
+            ],
+            captions: [
+              "Manage branches with their ID, short name, and status",
+            ],
+          },
+          {
+            id: "general-settings",
+            title: "General Settings",
+            paragraphs: [
+              "General settings hold the institution-wide configuration, from organization details and operational days to currency, structure, and security.",
+            ],
+            images: [
+              "/images/chaincore/general-settings/1.jpg",
+              "/images/chaincore/general-settings/2.jpg",
+            ],
+            captions: [
+              "Set organization details across the settings tabs",
+              "Define working days, operational days, and holidays",
+            ],
+          },
+          {
+            id: "payment-method",
+            title: "Payment Method",
+            paragraphs: [
+              "Payment methods control how money can move for each transaction type, toggling disbursement, repayment, recovery, deposit, and withdrawal per method.",
+            ],
+            images: [
+              "/images/chaincore/payment-method/1.jpg",
+              "/images/chaincore/payment-method/2.jpg",
+            ],
+            captions: [
+              "Empty state prompting you to add a payment method",
+              "Enable each method per transaction type in a matrix",
+            ],
           },
         ],
       },
@@ -242,6 +493,10 @@ export const projects: Project[] = [
       { id: "mobile-events", label: "Events", level: 1 },
       { id: "mobile-event-details", label: "Event Details", level: 1 },
       { id: "mobile-event-kit", label: "Event Kit", level: 1 },
+      { id: "mobile-place", label: "Place", level: 1 },
+      { id: "mobile-add-place", label: "Add a Place", level: 1 },
+      { id: "mobile-smart-suggestion", label: "Smart Suggestion", level: 1 },
+      { id: "mobile-profile", label: "Profile", level: 1 },
     ],
     sections: [
       {
@@ -624,6 +879,100 @@ export const projects: Project[] = [
               "Assign the item to specific guests or everyone",
               "See all items with who's responsible for each",
               "Edit, reassign, or remove any kit item",
+            ],
+          },
+          {
+            id: "mobile-place",
+            title: "Place",
+            paragraphs: [
+              "Places is a shared list of the spots a group wants to check out. Save personal or group places, keep track of what you've already visited, and turn any saved place into a plan.",
+            ],
+            images: [
+              "/images/knit/mobile/place/1.jpg",
+              "/images/knit/mobile/place/2.jpg",
+              "/images/knit/mobile/place/3.jpg",
+              "/images/knit/mobile/place/4.jpg",
+            ],
+            captions: [
+              "Empty personal list prompting you to add your first place",
+              "Browse all personal and group places with visited status",
+              "Open a place to see its map, location, and activity history",
+              "Add it to a list, view the map, or delete it",
+            ],
+          },
+          {
+            id: "mobile-add-place",
+            title: "Add a Place",
+            paragraphs: [
+              "Adding a place is quick. Name the spot, drop or search its location, set how soon you'd like to go, and save it to your personal or group list.",
+            ],
+            images: [
+              "/images/knit/mobile/add-place/1.jpg",
+              "/images/knit/mobile/add-place/2.jpg",
+              "/images/knit/mobile/add-place/3.jpg",
+              "/images/knit/mobile/add-place/4.jpg",
+              "/images/knit/mobile/add-place/5.jpg",
+            ],
+            captions: [
+              "From the Places tab, tap + to add a new place",
+              "Name the place, set a vibe timeline, and choose where to save it",
+              "Search for a location or use your current one",
+              "Drag the pin to the exact spot, then select it",
+              "Place added, with the option to copy it to the group list",
+            ],
+          },
+          {
+            id: "mobile-smart-suggestion",
+            title: "Smart Suggestion",
+            paragraphs: [
+              "Smart Suggestion is Knit's built-in assistant for deciding what to do. Tell it the vibe, answer a couple of quick questions, and it recommends places and activities near you, tailored to the group.",
+            ],
+            images: [
+              "/images/knit/mobile/smart-suggestion/1.jpg",
+              "/images/knit/mobile/smart-suggestion/2.jpg",
+              "/images/knit/mobile/smart-suggestion/3.jpg",
+              "/images/knit/mobile/smart-suggestion/4.jpg",
+              "/images/knit/mobile/smart-suggestion/5.jpg",
+              "/images/knit/mobile/smart-suggestion/6.jpg",
+              "/images/knit/mobile/smart-suggestion/7.jpg",
+              "/images/knit/mobile/smart-suggestion/8.jpg",
+              "/images/knit/mobile/smart-suggestion/9.jpg",
+              "/images/knit/mobile/smart-suggestion/10.jpg",
+            ],
+            captions: [
+              "Start from a vibe or browse activities happening near you",
+              "Scroll real activities and events around your location",
+              "Pick a vibe, then narrow it down by cuisine",
+              "Chat naturally about group size, budget, and atmosphere",
+              "Get tailored suggestions matched to your preferences",
+              "Open a suggestion to see photos, notes, and turn it into an event",
+              "Attach a PDF or image and let Knit find the place for you",
+              "Revisit past recommendations from your suggestion history",
+              "Browse all the documents, links, and images shared in the chat",
+              "Share a suggestion thread with the rest of your Knit",
+            ],
+          },
+          {
+            id: "mobile-profile",
+            title: "Profile",
+            paragraphs: [
+              "The profile hub is home base for your account. See your Knit stats at a glance and manage your details, interests, notifications, and app preferences.",
+            ],
+            images: [
+              "/images/knit/mobile/profile/1.jpg",
+              "/images/knit/mobile/profile/2.jpg",
+              "/images/knit/mobile/profile/3.jpg",
+              "/images/knit/mobile/profile/4.jpg",
+              "/images/knit/mobile/profile/5.jpg",
+              "/images/knit/mobile/profile/6.jpg",
+            ],
+            captions: [
+              "Your profile with Knits, events, and places stats plus settings",
+              "Edit your name, email, photo, and bio",
+              "Choose the interest categories that shape your suggestions",
+              "Drill into a category and pick the specifics you love",
+              "Fine-tune notifications and which sounds play",
+              "Set your time format and display language",
             ],
           },
         ],

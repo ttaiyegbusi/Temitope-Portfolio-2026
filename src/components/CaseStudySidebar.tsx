@@ -13,10 +13,13 @@ interface SubGroup {
   children: TocItem[];
 }
 
+type GroupEntry =
+  | { kind: "sub"; sub: SubGroup }
+  | { kind: "leaf"; item: TocItem };
+
 interface FeatureGroup {
   parent: TocItem;
-  subGroups: SubGroup[];
-  leaves: TocItem[];
+  entries: GroupEntry[];
   allIds: string[];
 }
 
@@ -25,8 +28,7 @@ type Node =
   | { type: "group"; group: FeatureGroup };
 
 function buildGroup(parent: TocItem, children: TocItem[]): FeatureGroup {
-  const subGroups: SubGroup[] = [];
-  const leaves: TocItem[] = [];
+  const entries: GroupEntry[] = [];
   let k = 0;
   while (k < children.length) {
     const child = children[k];
@@ -38,9 +40,9 @@ function buildGroup(parent: TocItem, children: TocItem[]): FeatureGroup {
         m++;
       }
       if (grandChildren.length > 0) {
-        subGroups.push({ parent: child, children: grandChildren });
+        entries.push({ kind: "sub", sub: { parent: child, children: grandChildren } });
       } else {
-        leaves.push(child);
+        entries.push({ kind: "leaf", item: child });
       }
       k = m;
     } else {
@@ -49,8 +51,7 @@ function buildGroup(parent: TocItem, children: TocItem[]): FeatureGroup {
   }
   return {
     parent,
-    subGroups,
-    leaves,
+    entries,
     allIds: [parent.id, ...children.map((c) => c.id)],
   };
 }
@@ -133,7 +134,7 @@ export function CaseStudySidebar({ items }: { items: TocItem[] }) {
           );
         }
 
-        const { parent, subGroups, leaves, allIds } = node.group;
+        const { parent, entries, allIds } = node.group;
         const isGroupActive = allIds.includes(activeId);
 
         return (
@@ -159,7 +160,30 @@ export function CaseStudySidebar({ items }: { items: TocItem[] }) {
             >
               <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-stroke-soft" />
 
-              {subGroups.map((sg) => {
+              {entries.map((entry) => {
+                if (entry.kind === "leaf") {
+                  const leaf = entry.item;
+                  const isActive = activeId === leaf.id;
+                  return (
+                    <div key={leaf.id} className="relative flex items-center">
+                      {isActive && (
+                        <div className="absolute left-0 w-[2px] h-[20px] bg-text-strong" />
+                      )}
+                      <button
+                        onClick={() => handleClick(leaf.id)}
+                        className={`text-left text-base transition-colors whitespace-nowrap pl-4 py-[3px] ${
+                          isActive
+                            ? "text-text-strong"
+                            : "text-text-soft hover:text-text-sub"
+                        }`}
+                      >
+                        {leaf.label}
+                      </button>
+                    </div>
+                  );
+                }
+
+                const sg = entry.sub;
                 const sgIds = [sg.parent.id, ...sg.children.map((c) => c.id)];
                 const isSgActive = sgIds.includes(activeId);
 
@@ -207,27 +231,6 @@ export function CaseStudySidebar({ items }: { items: TocItem[] }) {
                         );
                       })}
                     </div>
-                  </div>
-                );
-              })}
-
-              {leaves.map((leaf) => {
-                const isActive = activeId === leaf.id;
-                return (
-                  <div key={leaf.id} className="relative flex items-center">
-                    {isActive && (
-                      <div className="absolute left-0 w-[2px] h-[20px] bg-text-strong" />
-                    )}
-                    <button
-                      onClick={() => handleClick(leaf.id)}
-                      className={`text-left text-base transition-colors whitespace-nowrap pl-4 py-[3px] ${
-                        isActive
-                          ? "text-text-strong"
-                          : "text-text-soft hover:text-text-sub"
-                      }`}
-                    >
-                      {leaf.label}
-                    </button>
                   </div>
                 );
               })}
