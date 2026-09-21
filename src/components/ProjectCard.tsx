@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface ProjectCardProps {
   title: string;
@@ -12,6 +12,8 @@ interface ProjectCardProps {
   mobileThumbnail?: string;
   video?: string;
   tags?: string[];
+  index?: number;
+  ready?: boolean;
 }
 
 export function ProjectCard({
@@ -22,10 +24,44 @@ export function ProjectCard({
   mobileThumbnail,
   video,
   tags,
+  index = 0,
+  ready = true,
 }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [visible, setVisible] = useState(false);
+
+  // --- One-by-one reveal on scroll ---
+  const rootRef = useRef<HTMLAnchorElement>(null);
+  const [revealed, setRevealed] = useState(false);
+
+  useEffect(() => {
+    if (!ready) return;
+    const el = rootRef.current;
+    if (!el) return;
+
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReduced) {
+      setRevealed(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setRevealed(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [ready]);
 
   function handleMouseMove(e: React.MouseEvent) {
     if (!cardRef.current) return;
@@ -45,7 +81,14 @@ export function ProjectCard({
   }
 
   return (
-    <Link href={`/work/${slug}`} className="group flex flex-col gap-2.5">
+    <Link
+      ref={rootRef}
+      href={`/work/${slug}`}
+      className={`group flex flex-col gap-2.5 transition-all duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-[opacity,transform] ${
+        revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      }`}
+      style={{ transitionDelay: revealed ? `${(index % 4) * 100}ms` : "0ms" }}
+    >
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}

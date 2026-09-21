@@ -5,6 +5,8 @@ export interface FeaturedProject {
   thumbnail: string;
   mobileThumbnail: string;
   tags: string[];
+  /** Hidden from the home page grid, but still shown on the /work page. */
+  hideOnHome?: boolean;
 }
 
 export const featuredProjects: FeaturedProject[] = [
@@ -63,6 +65,7 @@ export const featuredProjects: FeaturedProject[] = [
     thumbnail: "/images/footballbooth/hero.jpg",
     mobileThumbnail: "/images/footballbooth/mobile.png",
     tags: ["AI", "SAAS", "ERP System"],
+    hideOnHome: true,
   },
   {
     title: "Wiremoney",
@@ -71,5 +74,6 @@ export const featuredProjects: FeaturedProject[] = [
     thumbnail: "/images/wiremoney/hero.jpg",
     mobileThumbnail: "/images/wiremoney/mobile.png",
     tags: ["Fintech", "Payments"],
+    hideOnHome: true,
   },
 ];

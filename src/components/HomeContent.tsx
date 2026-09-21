@@ -3,7 +3,9 @@
 import { ProjectCard } from "@/components/ProjectCard";
 import { CascadeReveal } from "@/components/CascadeReveal";
 import { useAppReady } from "@/components/AppShell";
-import { featuredProjects as projects } from "@/data/featuredProjects";
+import { featuredProjects } from "@/data/featuredProjects";
+
+const projects = featuredProjects.filter((p) => !p.hideOnHome);
 
 export function HomeContent() {
   const ready = useAppReady();
@@ -61,17 +63,20 @@ export function HomeContent() {
       </CascadeReveal>
 
       {/* Work */}
-      <CascadeReveal delay={240} ready={ready}>
-        <section className="max-w-[700px] mx-auto mt-16 flex flex-col gap-12 md:gap-10">
-          {chunkArray(projects, 2).map((row, rowIndex) => (
-            <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-5">
-              {row.map((project) => (
-                <ProjectCard key={project.slug} {...project} />
-              ))}
-            </div>
-          ))}
-        </section>
-      </CascadeReveal>
+      <section className="max-w-[700px] mx-auto mt-16 flex flex-col gap-12 md:gap-10">
+        {chunkArray(projects, 2).map((row, rowIndex) => (
+          <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-5">
+            {row.map((project, colIndex) => (
+              <ProjectCard
+                key={project.slug}
+                {...project}
+                index={rowIndex * 2 + colIndex}
+                ready={ready}
+              />
+            ))}
+          </div>
+        ))}
+      </section>
 
       {/* Fun Projects */}
       <CascadeReveal delay={360} ready={ready}>
@@ -79,16 +84,23 @@ export function HomeContent() {
           <p className="text-sm font-normal text-text-soft">Fun Projects</p>
           <ul className="flex flex-col">
             {[
-              "A Figma inspired Portfolio",
-              "Notes Web App",
-              "Fun Keyboard",
-              "WishPop - creating wish lists for gift sharing .",
-              "DevFest 2026 Website",
-              "Audio Player",
+              { label: "A Figma inspired Portfolio", href: "https://portfolio-pied-eight-bbhtxp62mp.vercel.app/" },
+              { label: "Notes Web App", href: "https://notes-app-six-opal.vercel.app/" },
+              { label: "Fun Keyboard", href: "https://keyboard-psi-beryl.vercel.app/" },
+              { label: "WishPop - creating wish lists for gift sharing .", href: "https://www.wishpop.online/" },
+              { label: "DevFest 2026 Website", href: "https://devfest-lagos-2026.vercel.app/" },
+              { label: "Audio Player", href: "https://audio-player-kappa.vercel.app/" },
             ].map((item) => (
-              <li key={item} className="flex items-center gap-3 py-2 px-2 -mx-2 rounded-lg hover:bg-stroke-soft/50 transition-colors cursor-pointer">
-                <StackIcon />
-                <span className="text-sm md:text-base font-normal text-black">{item}</span>
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 py-2 px-2 -mx-2 rounded-lg hover:bg-stroke-soft/50 transition-colors"
+                >
+                  <StackIcon />
+                  <span className="text-sm md:text-base font-normal text-black">{item.label}</span>
+                </a>
               </li>
             ))}
           </ul>
