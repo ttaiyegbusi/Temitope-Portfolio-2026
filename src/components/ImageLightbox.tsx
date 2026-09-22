@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { createPortal } from "react-dom";
 
 interface ImageLightboxProps {
   src: string;
@@ -97,7 +98,9 @@ export function ImageLightbox({
       <div onClick={handleOpen} className="cursor-zoom-in">
         {children}
       </div>
-      {open && (
+      {open &&
+        typeof document !== "undefined" &&
+        createPortal(
         <div
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm select-none"
           onClick={handleOverlayClick}
@@ -161,7 +164,8 @@ export function ImageLightbox({
               draggable={false}
             />
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

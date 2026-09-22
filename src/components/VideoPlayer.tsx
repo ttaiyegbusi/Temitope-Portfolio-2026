@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useCallback, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 export function VideoPlayer({ src }: { src: string }) {
   const [expanded, setExpanded] = useState(false);
@@ -74,33 +75,36 @@ export function VideoPlayer({ src }: { src: string }) {
         </span>
       </div>
 
-      {expanded && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 animate-lightbox-in"
-          onClick={close}
-        >
+      {expanded &&
+        typeof document !== "undefined" &&
+        createPortal(
           <div
-            className="relative w-[90vw] max-w-[1200px] animate-lightbox-scale shadow-2xl rounded-xl"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-white/95 animate-lightbox-in p-4 md:p-8"
+            onClick={close}
           >
-            <video
-              ref={expandedVideoRef}
-              src={src}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full rounded-xl"
-            />
-            <button
-              onClick={close}
-              className="absolute -top-10 right-0 text-text-soft hover:text-text-strong transition-colors text-sm"
+            <div
+              className="relative w-auto max-w-[95vw] max-h-[90vh] animate-lightbox-scale shadow-2xl rounded-xl"
+              onClick={(e) => e.stopPropagation()}
             >
-              Press Esc or click outside to close
-            </button>
-          </div>
-        </div>
-      )}
+              <video
+                ref={expandedVideoRef}
+                src={src}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="max-w-[95vw] max-h-[90vh] w-auto h-auto object-contain rounded-xl"
+              />
+              <button
+                onClick={close}
+                className="absolute -top-9 right-0 text-text-soft hover:text-text-strong transition-colors text-sm"
+              >
+                Press Esc or click outside to close
+              </button>
+            </div>
+          </div>,
+          document.body
+        )}
     </>
   );
 }
