@@ -26,7 +26,7 @@ export function Navigation() {
               key={item.label}
               href={item.href}
               aria-label={item.label}
-              className="relative flex items-center justify-center w-6 h-6"
+              className="relative flex items-center h-6"
               style={{
                 opacity: isActive ? 1 : 0.4,
                 transform: isActive ? "scale(1)" : "scale(0.92)",
@@ -39,7 +39,21 @@ export function Navigation() {
                 if (!isActive) e.currentTarget.style.opacity = "0.4";
               }}
             >
-              <Icon active={isActive} />
+              <span className="flex items-center justify-center w-6 h-6 shrink-0">
+                <Icon active={isActive} />
+              </span>
+              <span
+                className="overflow-hidden whitespace-nowrap text-sm font-normal text-text-strong"
+                style={{
+                  maxWidth: isActive ? "6rem" : "0rem",
+                  opacity: isActive ? 1 : 0,
+                  marginLeft: isActive ? "0.375rem" : "0rem",
+                  transition:
+                    "max-width 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.25s ease, margin-left 0.3s cubic-bezier(0.22,1,0.36,1)",
+                }}
+              >
+                {item.label}
+              </span>
             </Link>
           );
         })}
