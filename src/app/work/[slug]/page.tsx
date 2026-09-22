@@ -242,9 +242,8 @@ export default async function CaseStudyPage({
                     </span>
                   ))}
                 </div>
-                <p className="flex items-center gap-2 text-sm md:text-base font-normal text-black leading-snug">
-                  <span>{nextProject.description}</span>
-                  <ArrowRightIcon />
+                <p className="text-sm md:text-base font-normal text-black leading-snug">
+                  {nextProject.description}
                 </p>
               </div>
             </Link>
@@ -270,25 +269,6 @@ function ArrowLeftIcon() {
       className="text-text-soft"
     >
       <path d="m15 18-6-6 6-6" />
-    </svg>
-  );
-}
-
-function ArrowRightIcon() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="shrink-0 text-text-soft transition-transform duration-300 group-hover:translate-x-1"
-    >
-      <path d="M5 12h14" />
-      <path d="m12 5 7 7-7 7" />
     </svg>
   );
 }
