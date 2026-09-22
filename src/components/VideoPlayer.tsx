@@ -28,6 +28,29 @@ export function VideoPlayer({ src }: { src: string }) {
     }
   }, [expanded]);
 
+  // Only play (and therefore download) the inline video while it is on screen.
+  // This stops every video on the page downloading at once.
+  useEffect(() => {
+    const el = containerRef.current;
+    const video = videoRef.current;
+    if (!el || !video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     if (!expanded) return;
     function handleKey(e: KeyboardEvent) {
@@ -56,11 +79,10 @@ export function VideoPlayer({ src }: { src: string }) {
         <video
           ref={videoRef}
           src={src}
-          autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           className="w-full rounded-lg"
         />
         <span

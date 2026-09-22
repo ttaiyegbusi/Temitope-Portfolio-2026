@@ -24,10 +24,27 @@ export function ImageLightbox({
   const touchDelta = useRef(0);
   const swiped = useRef(false);
 
+  const [loaded, setLoaded] = useState(false);
+
   const gallery = images && images.length > 1 ? images : null;
   const currentSrc = gallery ? gallery[index] : src;
 
   const close = useCallback(() => setOpen(false), []);
+
+  // Reset the fade whenever the shown image changes.
+  useEffect(() => {
+    setLoaded(false);
+  }, [currentSrc]);
+
+  // Warm the browser cache for the neighbouring images so next/prev is instant.
+  useEffect(() => {
+    if (!open || !gallery) return;
+    [index - 1, index + 1].forEach((i) => {
+      const wrapped = (i + gallery.length) % gallery.length;
+      const img = new window.Image();
+      img.src = gallery[wrapped];
+    });
+  }, [open, gallery, index]);
 
   const prev = useCallback(() => {
     if (gallery) setIndex((i) => (i > 0 ? i - 1 : gallery.length - 1));
@@ -157,10 +174,19 @@ export function ImageLightbox({
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
+            {!loaded && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+              </div>
+            )}
             <img
               src={currentSrc}
               alt={alt}
-              className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-lg pointer-events-none"
+              onLoad={() => setLoaded(true)}
+              decoding="async"
+              className={`max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-lg pointer-events-none transition-opacity duration-300 ${
+                loaded ? "opacity-100" : "opacity-0"
+              }`}
               draggable={false}
             />
           </div>
