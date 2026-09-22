@@ -35,6 +35,7 @@ export function ProjectCard({
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [visible, setVisible] = useState(false);
   const [rot, setRot] = useState({ rx: 0, ry: 0 });
+  const [thumbLoaded, setThumbLoaded] = useState(false);
 
   // --- One-by-one reveal on scroll ---
   const rootRef = useRef<HTMLAnchorElement>(null);
@@ -129,6 +130,9 @@ export function ProjectCard({
         )}
         {thumbnail && !video && (
           <>
+            {!thumbLoaded && (
+              <div className="absolute inset-0 animate-pulse bg-stroke-soft/50" />
+            )}
             {mobileThumbnail && (
               <Image
                 src={mobileThumbnail}
@@ -136,7 +140,10 @@ export function ProjectCard({
                 width={1050}
                 height={810}
                 quality={82}
-                className="w-full h-full object-cover md:hidden"
+                onLoad={() => setThumbLoaded(true)}
+                className={`w-full h-full object-cover md:hidden transition-opacity duration-500 ${
+                  thumbLoaded ? "opacity-100" : "opacity-0"
+                }`}
               />
             )}
             <Image
@@ -145,12 +152,11 @@ export function ProjectCard({
               width={800}
               height={600}
               quality={82}
-              className={`w-full h-full object-cover ${mobileThumbnail ? "hidden md:block" : ""} ${
-                tilt
-                  ? `transition-transform duration-300 ease-out ${
-                      visible ? "scale-[1.06]" : "scale-100"
-                    }`
-                  : ""
+              onLoad={() => setThumbLoaded(true)}
+              className={`w-full h-full object-cover ease-out transition-[opacity,transform] duration-500 ${
+                thumbLoaded ? "opacity-100" : "opacity-0"
+              } ${mobileThumbnail ? "hidden md:block" : ""} ${
+                tilt ? (visible ? "scale-[1.06]" : "scale-100") : ""
               }`}
             />
           </>

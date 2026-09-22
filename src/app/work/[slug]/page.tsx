@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { projects, getProject, getNextCaseStudy } from "@/data/projects";
 import { CaseStudySidebar } from "@/components/CaseStudySidebar";
 import { VideoPlayer } from "@/components/VideoPlayer";
@@ -9,6 +8,7 @@ import { ImageGallery } from "@/components/ImageGallery";
 import { ImageLightbox } from "@/components/ImageLightbox";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { Reveal } from "@/components/Reveal";
+import { FadeInImage } from "@/components/FadeInImage";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -121,12 +121,13 @@ export default async function CaseStudyPage({
 
           {/* Hero image */}
           {project.thumbnail ? (
-            <div data-case-hero className="w-full rounded-lg overflow-hidden">
-              <Image
+            <div data-case-hero className="relative w-full rounded-lg overflow-hidden bg-bg-white">
+              <FadeInImage
                 src={project.thumbnail}
                 alt={project.title}
                 width={1200}
                 height={600}
+                priority
                 className="w-full h-auto"
               />
             </div>
@@ -166,8 +167,8 @@ export default async function CaseStudyPage({
                 )}
 
                 {typeof section.image === "string" && (
-                  <div className="w-full rounded-lg overflow-hidden">
-                    <Image
+                  <div className="relative w-full rounded-lg overflow-hidden bg-bg-white">
+                    <FadeInImage
                       src={section.image}
                       alt={section.title}
                       width={1200}
@@ -199,8 +200,8 @@ export default async function CaseStudyPage({
                     )}
                     {typeof sub.image === "string" && !sub.video && (
                       <ImageLightbox src={sub.image} alt={sub.title}>
-                        <div className="w-full rounded-lg overflow-hidden">
-                          <Image
+                        <div className="relative w-full rounded-lg overflow-hidden bg-bg-white">
+                          <FadeInImage
                             src={sub.image}
                             alt={sub.title}
                             width={2000}

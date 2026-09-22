@@ -110,15 +110,8 @@ export function ImageGallery({ images, captions, title }: ImageGalleryProps) {
         {images.map((img, i) => (
           <div key={i} data-slide className="shrink-0 flex flex-col gap-2">
             <ImageLightbox src={img} alt={`${title} ${i + 1}`} images={images} startIndex={i}>
-              <div className="w-[75vw] md:w-[460px] overflow-hidden rounded-lg">
-                <Image
-                  src={img}
-                  alt={`${title} ${i + 1}`}
-                  width={1400}
-                  height={1000}
-                  quality={82}
-                  className="w-full h-auto pointer-events-none"
-                />
+              <div className="relative w-[75vw] md:w-[460px] overflow-hidden rounded-lg bg-bg-white">
+                <GalleryImage src={img} alt={`${title} ${i + 1}`} />
               </div>
             </ImageLightbox>
             {captions && captions[i] && (
@@ -147,5 +140,27 @@ export function ImageGallery({ images, captions, title }: ImageGalleryProps) {
         </div>
       )}
     </div>
+  );
+}
+
+function GalleryImage({ src, alt }: { src: string; alt: string }) {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <>
+      {!loaded && (
+        <div className="absolute inset-0 animate-pulse bg-stroke-soft/60" />
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        width={1400}
+        height={1000}
+        quality={82}
+        onLoad={() => setLoaded(true)}
+        className={`w-full h-auto pointer-events-none transition-opacity duration-500 ${
+          loaded ? "opacity-100" : "opacity-0"
+        }`}
+      />
+    </>
   );
 }
