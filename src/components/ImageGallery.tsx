@@ -116,7 +116,7 @@ export function ImageGallery({ images, captions, title }: ImageGalleryProps) {
                   alt={`${title} ${i + 1}`}
                   width={1400}
                   height={1000}
-                  quality={95}
+                  quality={82}
                   className="w-full h-auto pointer-events-none"
                 />
               </div>

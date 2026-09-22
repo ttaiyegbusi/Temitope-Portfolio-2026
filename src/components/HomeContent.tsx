@@ -72,6 +72,7 @@ export function HomeContent() {
                 {...project}
                 index={rowIndex * 2 + colIndex}
                 ready={ready}
+                tilt
               />
             ))}
           </div>

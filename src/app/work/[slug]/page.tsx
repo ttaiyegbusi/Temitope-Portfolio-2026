@@ -8,6 +8,7 @@ import { MobileScrollbar } from "@/components/MobileScrollbar";
 import { ImageGallery } from "@/components/ImageGallery";
 import { ImageLightbox } from "@/components/ImageLightbox";
 import { ReadingProgress } from "@/components/ReadingProgress";
+import { Reveal } from "@/components/Reveal";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -136,7 +137,8 @@ export default async function CaseStudyPage({
           {/* Sections */}
           <div className="flex flex-col gap-10 mt-5">
             {project.sections.map((section) => (
-              <section key={section.id} id={section.id} className="flex flex-col gap-2.5">
+              <Reveal key={section.id}>
+              <section id={section.id} className="flex flex-col gap-2.5">
                 <h2 className="text-xs font-normal uppercase tracking-[0.1em] text-text-soft leading-[24px]">
                   {section.title}
                 </h2>
@@ -176,10 +178,10 @@ export default async function CaseStudyPage({
                 )}
 
                 {section.subsections?.map((sub) => (
+                  <Reveal key={sub.id} className="mt-5">
                   <div
-                    key={sub.id}
                     id={sub.id}
-                    className="flex flex-col gap-2.5 mt-5"
+                    className="flex flex-col gap-2.5"
                   >
                     <h3 className="text-base font-normal text-text-strong leading-[24px]">
                       {sub.title}
@@ -203,7 +205,7 @@ export default async function CaseStudyPage({
                             alt={sub.title}
                             width={2000}
                             height={600}
-                            quality={95}
+                            quality={82}
                             className="w-full h-auto"
                           />
                         </div>
@@ -216,8 +218,10 @@ export default async function CaseStudyPage({
                       <div className="bg-bg-white h-[200px] md:h-[350px] w-full rounded-lg" />
                     )}
                   </div>
+                  </Reveal>
                 ))}
               </section>
+              </Reveal>
             ))}
           </div>
 

@@ -14,7 +14,10 @@ interface ProjectCardProps {
   tags?: string[];
   index?: number;
   ready?: boolean;
+  tilt?: boolean;
 }
+
+const MAX_TILT = 7; // degrees
 
 export function ProjectCard({
   title,
@@ -26,10 +29,12 @@ export function ProjectCard({
   tags,
   index = 0,
   ready = true,
+  tilt = false,
 }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [visible, setVisible] = useState(false);
+  const [rot, setRot] = useState({ rx: 0, ry: 0 });
 
   // --- One-by-one reveal on scroll ---
   const rootRef = useRef<HTMLAnchorElement>(null);
@@ -66,10 +71,14 @@ export function ProjectCard({
   function handleMouseMove(e: React.MouseEvent) {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
-    setPos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setPos({ x, y });
+    if (tilt) {
+      const px = x / rect.width - 0.5; // -0.5 .. 0.5
+      const py = y / rect.height - 0.5;
+      setRot({ rx: -py * MAX_TILT * 2, ry: px * MAX_TILT * 2 });
+    }
   }
 
   function handleMouseEnter() {
@@ -78,6 +87,7 @@ export function ProjectCard({
 
   function handleMouseLeave() {
     setVisible(false);
+    setRot({ rx: 0, ry: 0 });
   }
 
   return (
@@ -94,7 +104,17 @@ export function ProjectCard({
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="relative bg-bg-white h-[290px] md:h-[300px] w-full rounded-lg overflow-hidden"
+        className={`relative bg-bg-white h-[290px] md:h-[300px] w-full rounded-lg overflow-hidden ${
+          tilt ? "transition-transform duration-200 ease-out will-change-transform" : ""
+        }`}
+        style={
+          tilt
+            ? {
+                transform: `perspective(900px) rotateX(${rot.rx}deg) rotateY(${rot.ry}deg)`,
+                transformStyle: "preserve-3d",
+              }
+            : undefined
+        }
       >
         {video && (
           <video
@@ -115,7 +135,7 @@ export function ProjectCard({
                 alt={title}
                 width={1050}
                 height={810}
-                quality={95}
+                quality={82}
                 className="w-full h-full object-cover md:hidden"
               />
             )}
@@ -124,13 +144,19 @@ export function ProjectCard({
               alt={title}
               width={800}
               height={600}
-              quality={90}
-              className={`w-full h-full object-cover ${mobileThumbnail ? "hidden md:block" : ""}`}
+              quality={82}
+              className={`w-full h-full object-cover ${mobileThumbnail ? "hidden md:block" : ""} ${
+                tilt
+                  ? `transition-transform duration-300 ease-out ${
+                      visible ? "scale-[1.06]" : "scale-100"
+                    }`
+                  : ""
+              }`}
             />
           </>
         )}
         <span
-          className="pointer-events-none absolute whitespace-nowrap text-sm font-medium text-text-strong bg-bg-white border border-stroke-soft rounded-full px-5 py-2.5 shadow-sm transition-opacity duration-200 -translate-x-1/2 -translate-y-1/2 hidden md:block"
+          className="pointer-events-none absolute whitespace-nowrap text-xs font-normal tracking-[0.01em] text-text-strong bg-bg-white rounded-md px-1.5 py-0.5 transition-opacity duration-200 -translate-x-1/2 -translate-y-1/2 hidden md:block"
           style={{
             left: pos.x,
             top: pos.y,

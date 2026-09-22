@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const TARGET = "Temitope Aiyegbusi";
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*!?<>{}[]~/\\|+=^";
-const DURATION = 2800;
+const DURATION = 1300;
 const CURSOR_CHAR = "▌";
 
 function easeInOutCubic(t: number) {

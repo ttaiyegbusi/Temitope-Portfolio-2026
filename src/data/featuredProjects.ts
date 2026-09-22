@@ -15,7 +15,7 @@ export const featuredProjects: FeaturedProject[] = [
     description: "Building Africa's first native core banking platform for 50+ financial institutions across Nigeria and the continent",
     slug: "chaincore",
     thumbnail: "/images/chaincore/home-web.jpg",
-    mobileThumbnail: "/images/chaincore/mobile-thumb.png",
+    mobileThumbnail: "/images/chaincore/mobile-thumb.jpg",
     tags: ["SAAS", "Fintech"],
   },
   {
@@ -23,7 +23,7 @@ export const featuredProjects: FeaturedProject[] = [
     description: "Designing a social coordination app that helps friend groups plan, vote and show up to real-life events",
     slug: "knit",
     thumbnail: "/images/knit/home-web.jpg",
-    mobileThumbnail: "/images/knit/mobile-thumb.png",
+    mobileThumbnail: "/images/knit/mobile-thumb.jpg",
     tags: ["AI", "Social Networking"],
   },
   {
@@ -31,7 +31,7 @@ export const featuredProjects: FeaturedProject[] = [
     description: "Powering $1M+ in remittances for 5,000+ users and helping African freelancers get paid faster across borders",
     slug: "reeple",
     thumbnail: "/images/reeple/home-web.jpg",
-    mobileThumbnail: "/images/reeple/mobile-thumb.png",
+    mobileThumbnail: "/images/reeple/mobile-thumb.jpg",
     tags: ["Fintech"],
   },
   {
@@ -39,7 +39,7 @@ export const featuredProjects: FeaturedProject[] = [
     description: "Rethinking enterprise procurement and resource planning for mid-market companies across multiple industries",
     slug: "yaraa",
     thumbnail: "/images/yaraa/home-web.jpg",
-    mobileThumbnail: "/images/yaraa/mobile-thumb.png",
+    mobileThumbnail: "/images/yaraa/mobile-thumb.jpg",
     tags: ["AI", "SAAS", "ERP System"],
   },
   {
@@ -47,7 +47,7 @@ export const featuredProjects: FeaturedProject[] = [
     description: "Streamlining HR operations, payroll and employee management for growing teams and organisations",
     slug: "timein-plus",
     thumbnail: "/images/timein-plus/home-web.jpg",
-    mobileThumbnail: "/images/timein-plus/mobile-thumb.png",
+    mobileThumbnail: "/images/timein-plus/mobile-thumb.jpg",
     tags: ["HRM", "SAAS"],
   },
   {
@@ -55,7 +55,7 @@ export const featuredProjects: FeaturedProject[] = [
     description: "Designing a mobile-first fintech experience that makes receiving money and paying bills instant across Nigeria",
     slug: "turbo",
     thumbnail: "/images/turbo/home-web.jpg",
-    mobileThumbnail: "/images/turbo/mobile-thumb.png",
+    mobileThumbnail: "/images/turbo/mobile-thumb.jpg",
     tags: ["Fintech", "Payments"],
   },
   {
@@ -63,7 +63,7 @@ export const featuredProjects: FeaturedProject[] = [
     description: "Building a social platform that connects football fans through communities, live discussions and trending content",
     slug: "footballbooth",
     thumbnail: "/images/footballbooth/hero.jpg",
-    mobileThumbnail: "/images/footballbooth/mobile.png",
+    mobileThumbnail: "/images/footballbooth/mobile.jpg",
     tags: ["AI", "SAAS", "ERP System"],
     hideOnHome: true,
   },
@@ -72,7 +72,7 @@ export const featuredProjects: FeaturedProject[] = [
     description: "Scaling a cross-border payments platform from a single market into 13+ new international markets and territories",
     slug: "wiremoney",
     thumbnail: "/images/wiremoney/hero.jpg",
-    mobileThumbnail: "/images/wiremoney/mobile.png",
+    mobileThumbnail: "/images/wiremoney/mobile.jpg",
     tags: ["Fintech", "Payments"],
     hideOnHome: true,
   },
