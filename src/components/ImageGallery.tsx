@@ -95,6 +95,24 @@ export function ImageGallery({ images, captions, title }: ImageGalleryProps) {
     }
   }, []);
 
+  // A single image gets centred (no drag-scroll, no dots, no peek).
+  if (images.length === 1) {
+    return (
+      <div className="flex flex-col items-center gap-2">
+        <ImageLightbox src={images[0]} alt={`${title} 1`}>
+          <div className="relative w-full max-w-[600px] overflow-hidden rounded-lg bg-bg-white">
+            <GalleryImage src={images[0]} alt={`${title} 1`} />
+          </div>
+        </ImageLightbox>
+        {captions && captions[0] && (
+          <p className="w-full max-w-[600px] text-sm text-text-sub text-center leading-[24px] tracking-[0.01em]">
+            {captions[0]}
+          </p>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className="-mr-5 md:-mr-6">
       <div
