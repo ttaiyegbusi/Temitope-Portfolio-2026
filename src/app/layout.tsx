@@ -16,10 +16,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
+const title = "Temitope Aiyegbusi — Product Designer X Design Engineer";
+const description =
+  "I'm passionate about transforming ideas into clean, functional, and visually captivating products.";
+
 export const metadata: Metadata = {
-  title: "Temitope Aiyegbusi — Product Designer X Design Engineer",
-  description:
-    "I'm passionate about transforming ideas into clean, functional, and visually captivating products.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    siteName: "Temitope Aiyegbusi",
+    url: siteUrl,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({
