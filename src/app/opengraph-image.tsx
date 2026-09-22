@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Temitope Aiyegbusi — Product Designer X Design Engineer";
+export const alt = "Temitope Aiyegbusi — Product Designer X Agentic Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -65,7 +65,7 @@ export default function OpengraphImage() {
             Temitope Aiyegbusi
           </div>
           <div style={{ fontSize: 38, color: "#737373" }}>
-            Product Designer × Design Engineer
+            Product Designer × Agentic Engineer
           </div>
         </div>
 

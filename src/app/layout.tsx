@@ -22,7 +22,7 @@ const siteUrl =
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : "http://localhost:3000");
 
-const title = "Temitope Aiyegbusi — Product Designer X Design Engineer";
+const title = "Temitope Aiyegbusi — Product Designer X Agentic Engineer";
 const description =
   "I'm passionate about transforming ideas into clean, functional, and visually captivating products.";
 

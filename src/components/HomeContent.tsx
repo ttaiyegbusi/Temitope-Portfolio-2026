@@ -38,7 +38,7 @@ export function HomeContent() {
             Temitope Aiyegbusi
           </h1>
           <p className="text-sm md:text-base font-normal text-text-soft font-sans">
-            Product Designer X Design Engineer
+            Product Designer X Agentic Engineer
           </p>
         </header>
       </CascadeReveal>

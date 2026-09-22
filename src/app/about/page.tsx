@@ -64,7 +64,7 @@ export default function AboutPage() {
             Temitope Aiyegbusi
           </h1>
           <p className="text-sm md:text-base font-normal text-text-soft font-sans">
-            Product Designer X Design Engineer
+            Product Designer X Agentic Engineer
           </p>
         </header>
       </CascadeReveal>
@@ -73,7 +73,7 @@ export default function AboutPage() {
         <section className="max-w-[550px] mx-auto mt-[30px] flex flex-col gap-5">
           <p className="text-base font-normal text-text-sub leading-relaxed">
             I&apos;m a <span className="text-black">Product Designer</span> and{" "}
-            <span className="text-black">Design Engineer</span> based in Nigeria
+            <span className="text-black">Agentic Engineer</span> based in Nigeria
             🇳🇬, building{" "}
             <Link href="/work" className="text-black hover:text-text-sub transition-colors">
               beautiful software
