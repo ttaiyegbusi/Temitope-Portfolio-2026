@@ -5,7 +5,7 @@ export default function WorkPage() {
   return (
     <main className="w-full px-5 md:px-6 pt-20 md:pt-28 pb-28 md:pb-32">
       <section className="max-w-[700px] mx-auto flex flex-col gap-12 md:gap-10">
-        <h1 className="text-lg md:text-xl font-normal text-black">My Work</h1>
+        <h1 className="text-lg md:text-xl font-normal text-black">Works</h1>
         {chunkArray(featuredProjects, 2).map((row, rowIndex) => (
           <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-5">
             {row.map((project) => (
