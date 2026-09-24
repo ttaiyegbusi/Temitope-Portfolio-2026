@@ -11,9 +11,7 @@ export function FadeInImage({ className = "", ...props }: ImageProps) {
   const [loaded, setLoaded] = useState(false);
   return (
     <>
-      {!loaded && (
-        <div className="absolute inset-0 animate-pulse bg-stroke-soft/50" />
-      )}
+      {!loaded && <div className="skeleton absolute inset-0" />}
       <Image
         {...props}
         onLoad={() => setLoaded(true)}

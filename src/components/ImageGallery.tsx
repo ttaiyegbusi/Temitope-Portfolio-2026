@@ -165,9 +165,7 @@ function GalleryImage({ src, alt }: { src: string; alt: string }) {
   const [loaded, setLoaded] = useState(false);
   return (
     <>
-      {!loaded && (
-        <div className="absolute inset-0 animate-pulse bg-stroke-soft/60" />
-      )}
+      {!loaded && <div className="skeleton absolute inset-0" />}
       <Image
         src={src}
         alt={alt}
